@@ -15,10 +15,10 @@
 
 /* Title and subtitle */
 .history-title {
-  color: #333;
+  color: #222;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .history-subtitle {
@@ -30,7 +30,7 @@
 
 /* Empty state */
 .empty-state {
-  background: white;
+  background: #fff;
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   padding: 30px;
@@ -54,11 +54,11 @@
 
 /* History card */
 .history-card {
-  background: white;
+  background: #fff;
   border-radius: 14px;
   padding: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.4s ease-in-out;
 }
 

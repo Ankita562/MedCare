@@ -10,9 +10,9 @@ export default function MedicalHistory() {
   }, []);
 
   return (
-    <div className="history-page">
-      <div className="history-container">
-        <h2 className="history-title">🩺 Medical History</h2>
+    <main className="history-page">
+      <section className="history-container">
+        <h1 className="history-title">🩺 Medical History</h1>
         <p className="history-subtitle">
           View your previous diagnoses, treatments, and health notes.
         </p>
@@ -24,18 +24,18 @@ export default function MedicalHistory() {
           </div>
         ) : (
           <div className="history-grid">
-            {records.map((h) => (
-              <div key={h.id} className="history-card">
-                <div className="card-header">
-                  <h3>{h.title}</h3>
-                  <span className="date-tag">{h.date}</span>
-                </div>
-                <p className="notes">{h.notes}</p>
-              </div>
+            {records.map((record) => (
+              <article key={record.id} className="history-card">
+                <header className="card-header">
+                  <h3>{record.title}</h3>
+                  <time className="date-tag">{record.date}</time>
+                </header>
+                <p className="notes">{record.notes}</p>
+              </article>
             ))}
           </div>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

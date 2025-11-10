@@ -1,94 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { api } from '../api';
-import './EmergencyContacts.css';
+import React, { useEffect, useState } from "react";
+import { api } from "../api";
+import "./Dashboard.css";
 
-export default function EmergencyContacts() {
+const EmergencyContacts = () => {
   const [contacts, setContacts] = useState([]);
-  const [name, setName] = useState('');
-  const [relation, setRelation] = useState('');
-  const [phone, setPhone] = useState('');
+  const [form, setForm] = useState({ name: "", relation: "", phone: "" });
 
   useEffect(() => {
-    api.contacts.list().then((res) => setContacts(res.data));
+    const fetchContacts = async () => {
+      const res = await api.contacts.list();
+      setContacts(res.data);
+    };
+    fetchContacts();
   }, []);
 
-  const addContact = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !relation || !phone) return;
-    const newContact = { id: Date.now().toString(), name, relation, phone };
-    setContacts([...contacts, newContact]);
-    setName('');
-    setRelation('');
-    setPhone('');
+    const res = await api.contacts.create(form);
+    setContacts([...contacts, res.data]);
+    setForm({ name: "", relation: "", phone: "" });
   };
 
   return (
-    <div className="contacts-page">
-      <div className="contacts-container">
-        <h2 className="contacts-title">🚑 Emergency Contacts</h2>
-        <p className="contacts-subtitle">
-          Add and manage people to contact during emergencies.
-        </p>
+    <div className="dashboard-container">
+      <h2>🚨 Emergency Contacts</h2>
+      <form onSubmit={handleSubmit} className="form-box">
+        <input
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          required
+        />
+        <input
+          name="relation"
+          placeholder="Relation"
+          value={form.relation}
+          onChange={(e) => setForm({ ...form, relation: e.target.value })}
+          required
+        />
+        <input
+          name="phone"
+          placeholder="Phone"
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          required
+        />
+        <button className="btn primary">➕ Add Contact</button>
+      </form>
 
-        {/* Add contact form */}
-        <form onSubmit={addContact} className="contact-form">
-          <h3>Add New Contact</h3>
-          <div className="input-group">
-            <label>Name</label>
-            <input
-              type="text"
-              placeholder="e.g. John Doe"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Relation</label>
-            <input
-              type="text"
-              placeholder="e.g. Brother"
-              value={relation}
-              onChange={(e) => setRelation(e.target.value)}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Phone</label>
-            <input
-              type="tel"
-              placeholder="e.g. +1 555-123-4567"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-
-          <button type="submit" className="btn-add">
-            ➕ Add Contact
-          </button>
-        </form>
-
-        {/* Contacts list */}
-        <div className="contacts-list">
-          <h3>Saved Contacts</h3>
-          {contacts.length === 0 ? (
-            <p className="empty-text">No contacts added yet.</p>
-          ) : (
-            <div className="contact-grid">
-              {contacts.map((c) => (
-                <div key={c.id} className="contact-card">
-                  <div className="contact-icon">👤</div>
-                  <div className="contact-info">
-                    <h4>{c.name}</h4>
-                    <p className="relation">{c.relation}</p>
-                    <p className="phone">📞 {c.phone}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      <ul className="medicine-list">
+        {contacts.map((c) => (
+          <li key={c.id}>
+            <strong>{c.name}</strong> — {c.relation} 📞 {c.phone}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default EmergencyContacts;

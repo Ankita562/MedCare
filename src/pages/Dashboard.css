@@ -1,137 +1,123 @@
-/* Main container */
+/* ===== Global Enhancements ===== */
 .dashboard-container {
-  padding: 40px;
-  background: #f9faff;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  color: #333;
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Header */
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+.dark {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  color: #eaeaea;
 }
 
-.dashboard-header h2 {
-  font-size: 1.8rem;
-  color: #444;
-  font-weight: 600;
+.light {
+  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
+  color: #2c2c2c;
 }
 
-.add-btn {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.2s, box-shadow 0.2s;
+/* Smooth Fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.add-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(110, 142, 251, 0.3);
-}
-
-/* Empty state */
-.empty-text {
-  color: #666;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 60px;
-}
-
-/* Grid layout for cards */
-.meds-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* Medicine card */
 .med-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.3s;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
+/* Hover Glow Effect */
 .med-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: #9eaaff;
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.25);
 }
 
-/* Header inside each card */
-.med-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.med-title {
-  font-size: 1.2rem;
-  margin: 0;
-  color: #2d2d2d;
-}
-
-.dosage-tag {
-  background: #eef2ff;
-  color: #5b6ef5;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* Notes */
-.med-notes {
-  margin: 10px 0 15px 0;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* Reminders */
-.reminders {
-  background: #f4f6ff;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-.reminder-item {
-  font-size: 0.9rem;
-  color: #444;
-  margin-bottom: 4px;
-}
-
-.reminder-item.none {
-  color: #999;
-}
-
-.days {
-  color: #6e8efb;
-  font-weight: 500;
-}
-
-/* Footer (Edit button) */
-.card-footer {
-  text-align: right;
-}
-
-.edit-btn {
-  background: #6e8efb;
+/* Animated Buttons */
+.dashboard-buttons button {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
   color: white;
-  padding: 6px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.2s;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 6px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.edit-btn:hover {
-  background: #5b7cf5;
+.dashboard-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
+}
+
+/* Dashboard Buttons Section */
+.dashboard-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 10px;
+}
+
+/* Role Banner Styling */
+.role-banner {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.role-banner.elderly {
+  background: #f3e8ff;
+  border-left: 5px solid #a777e3;
+  color: #5e1b91;
+}
+
+.role-banner.general {
+  background: #e0f7fa;
+  border-left: 5px solid #00acc1;
+  color: #004d40;
+}
+
+.role-banner.infant {
+  background: #fff3e0;
+  border-left: 5px solid #ffb300;
+  color: #6d4c41;
+}
+
+/* Checkup Alert Animation */
+.checkup-alert {
+  margin-top: 15px;
+  background: #fff0f3;
+  color: #d32f2f;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 5px solid #ef5350;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 83, 80, 0.4); }
+  50% { box-shadow: 0 0 10px 4px rgba(239, 83, 80, 0.2); }
+}
+
+/* Search Bar Glow */
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.3);
 }

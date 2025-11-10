@@ -1,0 +1,204 @@
+/* ===============================
+   Scan Report Page (Drag & Drop)
+   Matched with Dashboard Theme
+   Light + Dark Mode Supported
+   =============================== */
+
+.scan-report-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  padding: 2rem;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===== Light Mode Background ===== */
+.light.scan-report-page {
+  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
+  color: #2c2c2c;
+}
+
+/* ===== Dark Mode Background ===== */
+.dark.scan-report-page {
+  background: linear-gradient(180deg, #101522 0%, #1c1f2b 100%);
+  color: #eaeaea;
+}
+
+/* ===== Main Container ===== */
+.scan-report-container {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.scan-report-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.scan-report-container p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ===== Drop Zone ===== */
+.drop-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 14px;
+  padding: 3rem 1rem;
+  background: var(--drop-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.drop-zone.dragging {
+  border-color: #6e8efb;
+  background: var(--drop-hover);
+  box-shadow: 0 0 12px rgba(110, 142, 251, 0.4);
+}
+
+.drop-zone input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+/* ===== File Preview ===== */
+.file-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.file-card {
+  background: var(--file-bg);
+  padding: 1rem;
+  border-radius: 14px;
+  width: 140px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-3px);
+}
+
+.preview-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.pdf-icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  word-break: break-word;
+  color: var(--text-muted);
+}
+
+/* ===== Buttons ===== */
+.upload-btn {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(110, 142, 251, 0.3);
+}
+
+.upload-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.toggle-mode-btn {
+  margin-top: 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-mode-btn:hover {
+  background: var(--border-color);
+  color: #fff;
+}
+
+/* ===== Light Mode Variables ===== */
+.light {
+  --card-bg: #ffffff;
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --heading-color: #3b3b3b;
+  --text-muted: #555;
+  --border-color: #c2c9ff;
+  --drop-bg: #f9faff;
+  --drop-hover: #eef1ff;
+  --file-bg: #f4f6ff;
+}
+
+/* ===== Dark Mode Variables ===== */
+.dark {
+  --card-bg: #20263a;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --heading-color: #d0d4ff;
+  --text-muted: #aaa;
+  --border-color: #4b4f70;
+  --drop-bg: #1d2238;
+  --drop-hover: #2c3355;
+  --file-bg: #2a2f49;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .scan-report-container {
+    padding: 2rem 1.2rem;
+  }
+
+  .scan-report-container h1 {
+    font-size: 1.7rem;
+  }
+
+  .file-card {
+    width: 120px;
+  }
+
+  .upload-btn {
+    width: 100%;
+  }
+}
