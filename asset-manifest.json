@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MedCare-Frontend/static/css/main.dabb1cb2.css",
+    "main.js": "/MedCare-Frontend/static/js/main.b6911721.js",
+    "index.html": "/MedCare-Frontend/index.html",
+    "main.dabb1cb2.css.map": "/MedCare-Frontend/static/css/main.dabb1cb2.css.map",
+    "main.b6911721.js.map": "/MedCare-Frontend/static/js/main.b6911721.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dabb1cb2.css",
+    "static/js/main.b6911721.js"
+  ]
+}
