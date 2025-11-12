@@ -1,28 +1,206 @@
-/* src/index.css - base styles */
+/* ===========================================
+   ❤️ MEDCARE — GLOBAL THEME SYSTEM
+   Unified Red × Pastel Pink Palette
+   Light + Dark Mode Compatible
+   =========================================== */
+
+/* ----- Font Import (Poppins) ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===========================================
+   🌞 LIGHT MODE VARIABLES (Default)
+   =========================================== */
 :root {
-  --bg: #f6f8fb;
-  --text: #222;
-  --primary: #2563eb;
+  --bg: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
+  --text: #2b1b1d;
+  --card: #ffffff;
+  --primary: #ff6b6b;
+  --secondary: #ffb6c1;
+  --border: #ffd9e2;
+  --muted: #6b4f52;
+  --shadow: rgba(255, 107, 107, 0.15);
+  --gradient: linear-gradient(135deg, #ff6b6b, #ffb6c1);
 }
 
+/* ===========================================
+   🌙 DARK MODE VARIABLES
+   =========================================== */
+body.dark,
+body.dark-mode {
+  --bg: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
+  --text: #fce4ec;
+  --card: #2b1b22;
+  --primary: #ff8a80;
+  --secondary: #ffb6c1;
+  --border: #3a1f26;
+  --muted: #d8b8bd;
+  --shadow: rgba(255, 182, 193, 0.15);
+  --gradient: linear-gradient(135deg, #ff8a80, #ffb6c1);
+}
+
+/* ===========================================
+   🧱 BASE RESET
+   =========================================== */
 html, body, #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+/* ===========================================
+   ✨ GLOBAL TYPOGRAPHY + LAYOUT
+   =========================================== */
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--text);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* Container wrapper */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Main area */
 main {
+  flex: 1;
   padding: 2rem;
+  background: var(--bg);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* ===========================================
+   🔗 LINKS
+   =========================================== */
 a {
-  color: inherit;
+  color: var(--primary);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
+
+a:hover {
+  color: #ff859e;
+}
+
+/* ===========================================
+   🩷 HEADINGS
+   =========================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+/* ===========================================
+   🔘 BUTTONS (Global Style)
+   =========================================== */
+button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background: var(--gradient);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 18px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===========================================
+   🧾 INPUTS & TEXTAREAS
+   =========================================== */
+input, textarea, select {
+  font-family: "Poppins", sans-serif;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--card);
+  transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+  outline: none;
+}
+
+/* ===========================================
+   🪟 CARD COMPONENTS (Universal Style)
+   =========================================== */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 18px var(--shadow);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+/* ===========================================
+   ✨ UTILITIES
+   =========================================== */
+.text-center {
+  text-align: center;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================================
+   📱 RESPONSIVENESS
+   =========================================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  main {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+

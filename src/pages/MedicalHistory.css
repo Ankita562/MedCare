@@ -1,11 +1,23 @@
-/* Page layout */
+/* ==========================================
+   ❤️ Medical History Page – MedCare Theme
+   Red × Pastel Pink Palette
+   Light + Dark Mode Supported
+   ========================================== */
+
+/* ===== Page Layout ===== */
 .history-page {
-  background: linear-gradient(135deg, #eef2ff, #ffffff);
+  background: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 50px 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.dark .history-page {
+  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
+  color: #fce4ec;
 }
 
 .history-container {
@@ -13,61 +25,62 @@
   max-width: 900px;
 }
 
-/* Title and subtitle */
+/* ===== Title and Subtitle ===== */
 .history-title {
-  color: #222;
+  color: var(--accent-color, #ff6b6b);
   font-size: 2rem;
   text-align: center;
   margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .history-subtitle {
-  color: #666;
+  color: var(--muted-text, #6b4f52);
   font-size: 1rem;
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* Empty state */
+/* ===== Empty State ===== */
 .empty-state {
-  background: #fff;
+  background: var(--card-bg, #fff);
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.1);
   padding: 30px;
   text-align: center;
-  color: #666;
+  color: var(--muted-text, #6b4f52);
   animation: fadeIn 0.4s ease-in-out;
 }
 
 .empty-hint {
-  color: #999;
+  color: #b76e79;
   font-size: 0.9rem;
   margin-top: 6px;
 }
 
-/* History grid */
+/* ===== History Grid ===== */
 .history-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* History card */
+/* ===== History Card ===== */
 .history-card {
-  background: #fff;
+  background: var(--card-bg, #fff);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.1);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.4s ease-in-out;
 }
 
 .history-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(110, 142, 251, 0.25);
+  box-shadow: 0 10px 22px rgba(255, 107, 107, 0.25);
 }
 
-/* Header inside each card */
+/* ===== Card Header ===== */
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -77,29 +90,53 @@
 
 .card-header h3 {
   margin: 0;
-  color: #333;
+  color: var(--accent-color, #ff6b6b);
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-/* Date tag */
+/* ===== Date Tag ===== */
 .date-tag {
-  background: #e7e9ff;
-  color: #5b6ef5;
+  background: #ffe0e6;
+  color: #c62828;
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-/* Notes */
-.notes {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.5;
+.dark .date-tag {
+  background: #3a1f26;
+  color: #ffb6c1;
 }
 
-/* Fade-in animation */
+/* ===== Notes ===== */
+.notes {
+  color: var(--text-color, #2b1b1d);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== Dark Mode Variables ===== */
+.dark .history-card {
+  background: #2b1b22;
+  box-shadow: 0 8px 18px rgba(255, 182, 193, 0.15);
+  color: #fce4ec;
+}
+
+.dark .history-title {
+  color: #ffb6c1;
+}
+
+.dark .history-subtitle {
+  color: #d8b8bd;
+}
+
+.dark .notes {
+  color: #fcdde1;
+}
+
+/* ===== Animation ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -108,5 +145,20 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .history-page {
+    padding: 30px 16px;
+  }
+
+  .history-title {
+    font-size: 1.6rem;
+  }
+
+  .history-card {
+    padding: 16px;
   }
 }

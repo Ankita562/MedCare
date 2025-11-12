@@ -8,21 +8,31 @@ const ScanReport = () => {
   const [files, setFiles] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [cameraFile, setCameraFile] = useState(null);
 
-  // sync dark/light mode
+  // 🌗 Sync dark/light mode
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
     document.body.classList.toggle("light", !darkMode);
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  // handle file input
+  // 📁 Handle file input
   const handleFileSelect = (e) => {
     const selectedFiles = Array.from(e.target.files);
     setFiles((prev) => [...prev, ...selectedFiles]);
   };
 
-  // drag-and-drop handlers
+  // 📸 Handle camera capture
+  const handleCameraCapture = (e) => {
+    const capturedFile = e.target.files[0];
+    if (capturedFile) {
+      setCameraFile(capturedFile);
+      setFiles((prev) => [...prev, capturedFile]);
+    }
+  };
+
+  // 🧲 Drag-and-drop handlers
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
@@ -37,24 +47,25 @@ const ScanReport = () => {
 
   const handleDragLeave = () => setIsDragging(false);
 
-  // fake upload simulation
+  // 🚀 Upload simulation
   const handleUpload = () => {
-    if (files.length === 0) return alert("Please select a file to upload.");
+    if (files.length === 0) return alert("Please select or capture a file.");
     setUploading(true);
     setTimeout(() => {
-      alert("✅ Files uploaded successfully!");
+      alert("✅ Reports uploaded successfully!");
       setUploading(false);
       setFiles([]);
+      setCameraFile(null);
     }, 1500);
   };
 
   return (
     <div className={`scan-report-page ${darkMode ? "dark" : "light"}`}>
-      <div className="scan-report-container">
+      <div className="scan-report-container fade-in">
         <h1>📄 Scan Report Upload</h1>
-        <p>Upload and manage your scanned medical reports easily.</p>
+        <p>Upload, capture, and manage your scanned medical reports easily.</p>
 
-        {/* Drag and Drop Zone */}
+        {/* Drag & Drop Zone */}
         <div
           className={`drop-zone ${isDragging ? "dragging" : ""}`}
           onDragOver={handleDragOver}
@@ -64,7 +75,7 @@ const ScanReport = () => {
           <p>
             {isDragging
               ? "📂 Drop files here"
-              : "Drag & drop your reports here or click to upload"}
+              : "Drag & drop reports here or click to browse"}
           </p>
           <input
             type="file"
@@ -74,7 +85,21 @@ const ScanReport = () => {
           />
         </div>
 
-        {/* File Preview */}
+        {/* 📸 Capture from Camera */}
+        <div className="camera-section">
+          <p className="camera-text">Or capture a report directly using camera:</p>
+          <label className="camera-btn">
+            📷 Capture with Camera
+            <input
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handleCameraCapture}
+            />
+          </label>
+        </div>
+
+        {/* 🖼 File Preview */}
         {files.length > 0 && (
           <div className="file-preview">
             {files.map((file, idx) => (
@@ -94,7 +119,7 @@ const ScanReport = () => {
           </div>
         )}
 
-        {/* Upload Button */}
+        {/* 🚀 Upload Button */}
         <button
           className="upload-btn"
           onClick={handleUpload}
@@ -103,7 +128,7 @@ const ScanReport = () => {
           {uploading ? "⏳ Uploading..." : "🚀 Upload Reports"}
         </button>
 
-        {/* Mode Toggle */}
+        {/* 🌗 Mode Toggle */}
         <button
           className="toggle-mode-btn"
           onClick={() => setDarkMode((prev) => !prev)}

@@ -1,123 +1,171 @@
-/* ===== Global Enhancements ===== */
-.dashboard-container {
-  position: relative;
-  overflow-x: hidden;
-  transition: background 0.5s ease, color 0.5s ease;
+/* ================================================
+   ❤️ MedCare Dashboard – Refined Minimal Layout
+   Clean, calm red × pastel pink theme
+   ================================================ */
+
+.dashboard-page {
+  background: linear-gradient(180deg, #fff8fa, #ffeef2);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #2b1b1d;
+  padding: 2rem 3rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.dark {
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-  color: #eaeaea;
+/* Section Wrapper */
+.section {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
-.light {
-  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
-  color: #2c2c2c;
+/* Section Titles */
+.section h2 {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.4rem;
 }
 
-/* Smooth Fade-in */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Patient Info Section */
+.patient-info p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #444;
 }
 
-.med-card {
-  animation: fadeInUp 0.5s ease forwards;
+/* Alerts Section */
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-/* Hover Glow Effect */
-.med-card:hover {
-  border-color: #9eaaff;
-  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.25);
+.alert {
+  background: #fff0f3;
+  border-left: 4px solid #ff6b6b;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  color: #2b1b1d;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-/* Animated Buttons */
-.dashboard-buttons button {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 12px;
-  margin: 6px;
+.alert.urgent {
+  border-left-color: #ff9800;
+  background: #fff8e1;
+}
+
+/* Medicines Section */
+.medicine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.medicine-card {
+  background: #fff;
+  border: 1px solid #ffdce5;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 6px rgba(255, 107, 107, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.medicine-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(255, 107, 107, 0.15);
+}
+
+.medicine-card h3 {
+  color: #a02a43;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.medicine-card .dosage {
+  background: #ffebef;
+  color: #a02a43;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.medicine-card p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.medicine-card .edit-link {
+  color: #ff6b6b;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.8rem;
+  display: inline-block;
+}
+
+.medicine-card .edit-link:hover {
+  text-decoration: underline;
+}
+
+/* Add Medicine Link */
+.add-medicine {
+  color: #ff6b6b;
+  font-weight: 500;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
 
-.dashboard-buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
-}
-
-/* Dashboard Buttons Section */
-.dashboard-buttons {
+/* Buttons Section */
+.actions {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
   justify-content: center;
-  margin: 30px 0;
-  gap: 10px;
 }
 
-/* Role Banner Styling */
-.role-banner {
-  margin-top: 12px;
-  padding: 12px 16px;
-  border-radius: 12px;
+.action-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  border: none;
+  color: white;
+  padding: 12px 18px;
   font-weight: 500;
-  line-height: 1.5;
-}
-
-.role-banner.elderly {
-  background: #f3e8ff;
-  border-left: 5px solid #a777e3;
-  color: #5e1b91;
-}
-
-.role-banner.general {
-  background: #e0f7fa;
-  border-left: 5px solid #00acc1;
-  color: #004d40;
-}
-
-.role-banner.infant {
-  background: #fff3e0;
-  border-left: 5px solid #ffb300;
-  color: #6d4c41;
-}
-
-/* Checkup Alert Animation */
-.checkup-alert {
-  margin-top: 15px;
-  background: #fff0f3;
-  color: #d32f2f;
-  padding: 12px 16px;
   border-radius: 10px;
-  border-left: 5px solid #ef5350;
-  animation: pulse 2s infinite;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 83, 80, 0.4); }
-  50% { box-shadow: 0 0 10px 4px rgba(239, 83, 80, 0.2); }
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 107, 0.25);
 }
 
-/* Search Bar Glow */
-.search-bar input {
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 1rem;
-  transition: box-shadow 0.3s ease;
+/* Dark Mode */
+body.dark-mode .dashboard-page {
+  background: linear-gradient(180deg, #1b0f13, #2b1b22);
+  color: #fce4ec;
 }
 
-.search-bar input:focus {
-  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.3);
+body.dark-mode .section {
+  background: #2b1b22;
+  color: #fce4ec;
+  box-shadow: 0 2px 8px rgba(255, 182, 193, 0.1);
+}
+
+body.dark-mode .alert {
+  background: #3a1f26;
+  color: #fcdde1;
+}
+
+body.dark-mode .medicine-card {
+  background: #3a1f26;
+  border-color: #5b2e38;
 }

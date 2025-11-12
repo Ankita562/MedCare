@@ -1,59 +1,90 @@
 .patient-form {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
   width: 100%;
-  max-width: 400px;
-  margin: 40px auto;
+  max-width: 480px;
+  margin: 60px auto;
+  color: var(--text-color);
+  text-align: left;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-.patient-form h1,
-.patient-form h2 {
-  margin-bottom: 20px;
+.patient-form h1 {
   text-align: center;
-  font-size: 1.6rem;
-  color: #222;
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.patient-form form label {
+.form-subtitle {
+  text-align: center;
+  color: var(--muted-text);
+  margin-bottom: 1.8rem;
+  font-size: 0.95rem;
+}
+
+.patient-form label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 500;
-  color: #444;
+  color: var(--text-color);
 }
 
-.patient-form form input,
-.patient-form form select {
-  display: block;
+.patient-form input,
+.patient-form select {
   width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f9f9f9;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.patient-form form input:focus,
-.patient-form form select:focus {
+.patient-form input:focus,
+.patient-form select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
   outline: none;
-  border-color: #0078d4;
-  background-color: #fff;
 }
 
-.patient-form form button {
+.patient-form button {
   width: 100%;
-  padding: 12px;
-  background-color: #0078d4;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
   color: white;
   border: none;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.patient-form form button:hover {
-  background-color: #005fa3;
+.patient-form button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.3);
+}
+
+.patient-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-message {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .patient-form {
+    padding: 30px 20px;
+  }
 }

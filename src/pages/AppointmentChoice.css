@@ -1,48 +1,57 @@
-/* ===============================
-   Appointment Choice Page
-   =============================== */
+/* ===========================================
+   ❤️ Appointment Choice Page – MedCare Theme
+   Red × Pastel Pink Palette
+   Light + Dark Mode Supported
+   =========================================== */
 
+/* ===== Page Container ===== */
 .appointment-choice-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
-  color: #2c2c2c;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
   padding: 2rem;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ====== Card ====== */
+/* ===== Choice Card ===== */
 .choice-card {
-  background: #fff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 3rem 2.5rem;
   max-width: 600px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease;
 }
 
 .choice-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px var(--shadow-color);
 }
 
+/* ===== Headings ===== */
 .choice-card h2 {
   font-size: 1.9rem;
-  color: #4a4a9c;
-  margin-bottom: 0.6rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .choice-subtext {
   font-size: 1.05rem;
-  color: #555;
+  color: var(--muted-text);
   margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
-/* ====== Buttons ====== */
+/* ===== Buttons Section ===== */
 .choice-buttons {
   display: flex;
   flex-direction: column;
@@ -54,51 +63,64 @@
   border: none;
   border-radius: 12px;
   font-size: 1rem;
-  padding: 14px 18px;
   font-weight: 500;
-  text-align: center;
+  padding: 14px 18px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-/* Apollo link */
+/* ===== Primary (Apollo / Online Booking) ===== */
 .primary-btn {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: var(--btn-gradient);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(110, 142, 251, 0.3);
-  text-decoration: none;
+  box-shadow: 0 6px 15px var(--shadow-color);
 }
-
 .primary-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(110, 142, 251, 0.4);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-/* Manual */
+/* ===== Secondary (Manual Booking) ===== */
 .secondary-btn {
-  background: #f4f6ff;
-  color: #4a4a9c;
-  border: 1px solid #c2c9ff;
+  background: var(--card-bg);
+  color: var(--accent-color);
+  border: 1px solid var(--card-border);
 }
-
 .secondary-btn:hover {
-  background: #e8ebff;
+  background: var(--secondary-color);
+  color: #fff;
   transform: translateY(-2px);
 }
 
-/* Upload */
+/* ===== Upload (Scan or File Upload) ===== */
 .upload-btn {
-  background: #fff3e0;
-  color: #ff9800;
-  border: 1px solid #ffc107;
+  background: #fff0f3;
+  color: #b23a48;
+  border: 1px solid #ffc4cc;
+  transition: all 0.3s ease;
 }
-
 .upload-btn:hover {
-  background: #ffe0b2;
+  background: #ffe1e6;
   transform: translateY(-2px);
 }
 
-/* Animations */
+/* ===== Dark Mode Adjustments (auto from global vars) ===== */
+body.dark-mode .choice-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+body.dark-mode .upload-btn {
+  background: #3a1f26;
+  color: #ffb6c1;
+  border-color: #5b2e38;
+}
+body.dark-mode .upload-btn:hover {
+  background: #4b242e;
+}
+
+/* ===== Animations ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -110,16 +132,14 @@
   }
 }
 
-/* Responsive */
+/* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   .choice-card {
     padding: 2rem 1.5rem;
   }
-
   .choice-card h2 {
     font-size: 1.6rem;
   }
-
   .choice-buttons a,
   .choice-buttons button {
     font-size: 0.95rem;

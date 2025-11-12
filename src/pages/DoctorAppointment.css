@@ -1,51 +1,56 @@
-/* ===============================
-   Doctor Appointment Page
-   =============================== */
+/* ===============================================
+   ❤️ Doctor Appointment Page – MedCare Global Theme
+   Red × Pastel Pink Palette
+   Unified Light + Dark Mode Styling
+   =============================================== */
 
+/* ===== Page Container ===== */
 .appointment-page-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
-  color: #333;
-  transition: background 0.4s ease, color 0.4s ease;
+  font-family: "Poppins", sans-serif;
   padding: 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ====== Card ====== */
+/* ===== Appointment Card ===== */
 .appointment-card {
-  background: #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 3rem 2.5rem;
   max-width: 600px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px var(--shadow-color);
   transition: all 0.3s ease;
   animation: fadeIn 0.6s ease;
 }
 
 .appointment-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px var(--shadow-color);
 }
 
-/* ====== Text ====== */
+/* ===== Headings ===== */
 .appointment-card h1 {
   font-size: 2rem;
-  color: #4a4a9c;
+  color: var(--accent-color);
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--muted-text);
   margin-bottom: 2rem;
 }
 
-/* ====== Buttons ====== */
+/* ===== Buttons Section ===== */
 .options {
   display: flex;
   flex-direction: column;
@@ -64,53 +69,53 @@
   transition: all 0.3s ease;
 }
 
-/* Apollo Button */
+/* ===== Primary (Book via Apollo) ===== */
 .primary-btn {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  box-shadow: 0 4px 14px rgba(110, 142, 251, 0.3);
+  background: var(--btn-gradient);
+  color: #fff;
+  box-shadow: 0 6px 15px var(--shadow-color);
 }
-
 .primary-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(110, 142, 251, 0.4);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-/* Manual Booking */
+/* ===== Secondary (Manual Booking) ===== */
 .secondary-btn {
-  background: #f4f6ff;
-  color: #4a4a9c;
-  border: 1px solid #c2c9ff;
+  background: var(--card-bg);
+  color: var(--accent-color);
+  border: 1px solid var(--card-border);
 }
-
 .secondary-btn:hover {
-  background: #e8ebff;
+  background: var(--secondary-color);
+  color: #fff;
   transform: translateY(-2px);
 }
 
-/* Back to Dashboard */
+/* ===== Back Button ===== */
 .back-btn {
-  background: #f0f0f0;
-  color: #333;
-  border: 1px solid #ccc;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
 }
-
 .back-btn:hover {
-  background: #e2e2e2;
-  transform: translateY(-2px);
+  background: var(--accent-color);
+  color: #fff;
 }
 
-/* Coming Soon Section */
+/* ===== Coming Soon Section ===== */
 .coming-soon {
   margin-top: 2rem;
   font-size: 0.95rem;
-  color: #666;
-  background: #f4f6ff;
+  color: var(--muted-text);
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent-color);
   border-radius: 10px;
   padding: 1rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-/* ====== Popup Overlay ====== */
+/* ===== Popup Overlay ===== */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -123,19 +128,20 @@
 }
 
 .popup-box {
-  background: white;
+  background: var(--card-bg);
   padding: 2rem 3rem;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px var(--shadow-color);
   animation: popIn 0.3s ease;
 }
 
+/* ===== Spinner & Checkmark ===== */
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid #ccc;
-  border-top-color: #6e8efb;
+  border: 4px solid var(--card-border);
+  border-top-color: var(--accent-color);
   border-radius: 50%;
   margin: 0 auto 1rem;
   animation: spin 1s linear infinite;
@@ -148,13 +154,12 @@
   animation: popIn 0.3s ease;
 }
 
-/* ====== Animations ====== */
+/* ===== Animations ===== */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes popIn {
   from {
     transform: scale(0.8);
@@ -165,7 +170,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -177,57 +181,18 @@
   }
 }
 
-/* ====== Dark Mode ====== */
-body.dark .appointment-page-container {
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-  color: #eaeaea;
-}
-
-body.dark .appointment-card {
-  background: #20263a;
-  color: #eaeaea;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-body.dark .secondary-btn {
-  background: #2b3350;
-  color: #e0e5ff;
-  border: 1px solid #3a4372;
-}
-
-body.dark .secondary-btn:hover {
-  background: #353e66;
-}
-
-body.dark .back-btn {
-  background: #2b2b2b;
-  color: #eee;
-  border: 1px solid #444;
-}
-
-body.dark .coming-soon {
-  background: #2e3550;
-  color: #ccc;
-}
-
-body.dark .popup-box {
-  background: #2a2a3e;
-  color: #fff;
-}
-
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .appointment-card {
     padding: 2rem 1.5rem;
   }
-
   .appointment-card h1 {
     font-size: 1.7rem;
   }
-
   .primary-btn,
   .secondary-btn,
   .back-btn {
     font-size: 0.95rem;
   }
 }
+

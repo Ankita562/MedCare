@@ -1,6 +1,6 @@
 /* ================================
-   View Timeline Page (Dark + Light)
-================================== */
+   View Timeline Page — MedCare Theme
+   ================================ */
 
 .timeline-page-container {
   min-height: 100vh;
@@ -8,36 +8,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Inter", sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
-/* Light Mode */
-.light .timeline-page-container {
-  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
-  color: #2c2c2c;
-}
-
-/* Dark Mode */
-.dark .timeline-page-container {
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-  color: #eaeaea;
-}
-
-/* Page Header */
 .timeline-page-container h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: var(--heading-color, #4a4a9c);
+  color: var(--accent-color);
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: var(--text-muted, #555);
+  color: var(--muted-text);
   margin-bottom: 2rem;
 }
 
-/* Timeline */
+/* Empty State */
+.empty-timeline {
+  font-size: 1rem;
+  color: var(--muted-text);
+  background: var(--card-bg);
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+}
+
+/* Timeline Structure */
 .timeline-container {
   position: relative;
   width: 90%;
@@ -48,11 +47,12 @@
 .timeline-container::before {
   content: "";
   position: absolute;
-  left: 20px;
+  left: 24px;
   width: 3px;
   height: 100%;
-  background: #a777e3;
-  opacity: 0.6;
+  background: var(--accent-color);
+  opacity: 0.4;
+  border-radius: 2px;
 }
 
 .timeline-item {
@@ -60,46 +60,65 @@
   align-items: flex-start;
   margin-bottom: 1.8rem;
   position: relative;
-  padding-left: 3rem;
+  padding-left: 3.5rem;
 }
 
 .timeline-dot {
   position: absolute;
-  left: 8px;
+  left: 0;
   top: 0;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  color: var(--accent-color);
 }
 
+/* Content Box */
 .timeline-content {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg);
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: var(--card-shadow, 0 8px 20px rgba(0, 0, 0, 0.08));
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .timeline-content:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(110, 142, 251, 0.3);
+  box-shadow: 0 8px 22px var(--shadow-color);
 }
 
 .timeline-content h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
-  color: var(--heading-color, #4a4a9c);
+  color: var(--accent-color);
 }
 
 .event-desc {
   font-size: 0.95rem;
-  color: var(--text-muted, #666);
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
 .event-date {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--muted-text);
   text-align: right;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
@@ -107,7 +126,16 @@
   .timeline-container {
     width: 100%;
   }
+
   .timeline-content {
     padding: 0.9rem 1rem;
+  }
+
+  .timeline-container::before {
+    left: 16px;
+  }
+
+  .timeline-item {
+    padding-left: 2.8rem;
   }
 }

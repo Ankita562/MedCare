@@ -19,7 +19,7 @@ import ScanReport from "./pages/ScanReport";
 import MedicalReports from "./pages/MedicalReports";
 import ViewTimeline from "./pages/ViewTimeline";
 import Analytics from "./pages/Analytics";
-import FindDoctors from "./pages/FindDoctors"; // ✅ make sure this file exists
+import FindDoctors from "./pages/FindDoctors";
 
 // 🧠 Data + API
 import { fakePatientDetails } from "./data/fakeData";
@@ -33,13 +33,15 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [detailsSubmitted, setDetailsSubmitted] = useState(false);
   const [patientInfo] = useState(fakePatientDetails);
+
+  // 🌗 Global Dark Mode State
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("darkMode") === "true"
   );
 
   // ------------------ EFFECTS ------------------
 
-  // ✅ Load login state
+  // ✅ Load login state on mount
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
   }, []);
@@ -49,7 +51,7 @@ function App() {
     localStorage.setItem("isLoggedIn", isLoggedIn);
   }, [isLoggedIn]);
 
-  // ✅ Manage dark/light mode
+  // ✅ Manage dark/light mode globally
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
     document.body.classList.toggle("light", !darkMode);
@@ -74,7 +76,7 @@ function App() {
       />
 
       {/* 🌐 Page Content */}
-      <main style={{ padding: "20px", minHeight: "80vh", overflowX: "hidden" }}>
+      <main className="fade-in" style={{ minHeight: "80vh", overflowX: "hidden" }}>
         <Routes>
           {/* 🏠 Default Redirect */}
           <Route
@@ -88,7 +90,7 @@ function App() {
             }
           />
 
-          {/* 🔐 Auth */}
+          {/* 🔐 Authentication */}
           <Route
             path="/login"
             element={<Auth onLogin={() => setIsLoggedIn(true)} />}
@@ -211,7 +213,9 @@ function App() {
           {/* 👨‍⚕️ Find Doctors */}
           <Route
             path="/doctors"
-            element={isLoggedIn ? <FindDoctors /> : <Navigate to="/login" replace />}
+            element={
+              isLoggedIn ? <FindDoctors /> : <Navigate to="/login" replace />
+            }
           />
 
           {/* 🚫 Fallback */}
@@ -226,3 +230,4 @@ function App() {
 }
 
 export default App;
+

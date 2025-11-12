@@ -1,50 +1,55 @@
-/* =======================================
-   🌗 GLOBAL THEME — LIGHT + DARK MODES
-   Unified color variables for entire app
-   ======================================= */
+/* ===========================================
+   ❤️ MEDCARE GLOBAL THEME
+   Red × Pastel Pink | Light & Dark Mode
+   =========================================== */
 
-/* Default variables (Light Mode) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* ===========================================
+   🌞 Light Mode (Default)
+   =========================================== */
 :root {
-  --bg-color: #f9faff;
-  --text-color: #222;
+  --bg-color: #fff5f7;
   --card-bg: #ffffff;
-  --card-border: #d8dcf0;
-  --accent-color: #6e8efb;
-  --secondary-color: #a777e3;
-  --muted-text: #666;
-  --footer-bg: #f2f3fb;
-  --footer-text: #555;
-  --btn-gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+  --card-border: #ffd9e2;
+  --text-color: #2b1b1d;
+  --muted-text: #6b4f52;
+  --accent-color: #ff6b6b;
+  --secondary-color: #ffb6c1;
+  --btn-gradient: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  --shadow-color: rgba(255, 107, 107, 0.25);
+  --highlight: #ffe4ec;
 }
 
-/* Dark Mode variables */
+/* ===========================================
+   🌙 Dark Mode
+   =========================================== */
+body.dark,
 body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #f0f0f0;
-  --card-bg: #1c1c1c;
-  --card-border: #2f2f2f;
-  --accent-color: #9c7eff;
-  --secondary-color: #6e8efb;
-  --muted-text: #aaa;
-  --footer-bg: #1f1f1f;
-  --footer-text: #ccc;
-  --btn-gradient: linear-gradient(135deg, #9c7eff, #6e8efb);
+  --bg-color: #1b0f13;
+  --card-bg: #2b1b22;
+  --card-border: #3a1f26;
+  --text-color: #fce4ec;
+  --muted-text: #d8b8bd;
+  --accent-color: #ff8a80;
+  --secondary-color: #ffb6c1;
+  --btn-gradient: linear-gradient(135deg, #ff8a80, #ffb6c1);
+  --shadow-color: rgba(255, 182, 193, 0.25);
+  --highlight: #3a2228;
 }
 
-/* =======================================
-   🧱 APP STRUCTURE
-   ======================================= */
+/* ===========================================
+   🌍 Base Layout
+   =========================================== */
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   transition: background 0.4s ease, color 0.4s ease;
-  overflow-x: hidden;
 }
 
-/* Main App Container */
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -52,120 +57,169 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Main content between navbar & footer */
 main {
   flex: 1;
   padding: 20px;
   min-height: 80vh;
   background: var(--bg-color);
   color: var(--text-color);
-  box-sizing: border-box;
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* =======================================
-   🌓 THEME TOGGLE
-   ======================================= */
-.theme-toggle {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 30px 0 0;
-}
-
-.theme-toggle button {
-  background: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 6px 14px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
-}
-
-.theme-toggle button:hover {
-  background: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
-}
-
-/* =======================================
-   🧾 DASHBOARD & CARD STYLES
-   ======================================= */
-.dashboard-container {
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.4s, color 0.4s;
-}
-
-.med-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  color: var(--text-color);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: background 0.4s, color 0.4s, border 0.4s;
-}
-
-.reminders {
-  background: var(--card-bg);
-  border-left: 4px solid var(--accent-color);
-}
-
-/* =======================================
-   🔘 BUTTON STYLES
-   ======================================= */
+/* ===========================================
+   🩷 Buttons
+   =========================================== */
+button,
 .btn {
   border: none;
   cursor: pointer;
   border-radius: 10px;
   padding: 10px 18px;
-  transition: all 0.3s ease;
   font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-.btn-primary {
+.btn-primary,
+button.primary {
   background: var(--btn-gradient);
   color: #fff;
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(110, 142, 251, 0.4);
+.btn-primary:hover,
+button.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px var(--shadow-color);
 }
 
 .btn-outline {
   background: transparent;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
+  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
   background: var(--accent-color);
-  color: white;
+  color: #fff;
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-/* =======================================
-   🦶 FOOTER
-   ======================================= */
-footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  text-align: center;
-  padding: 12px 0;
+/* ===========================================
+   🧊 Cards
+   =========================================== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.08);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px var(--shadow-color);
+  transform: translateY(-3px);
+}
+
+/* ===========================================
+   🌗 Theme Toggle
+   =========================================== */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 30px 0 0;
+}
+
+.theme-toggle button {
+  background: var(--btn-gradient);
+  border: none;
+  color: #fff;
+  border-radius: 25px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: 500;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.theme-toggle button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px var(--shadow-color);
+}
+
+/* ===========================================
+   🦶 Footer
+   =========================================== */
+footer {
+  background: var(--card-bg);
+  color: var(--muted-text);
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--card-border);
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* =======================================
-   ✨ UTILITY CLASSES
-   ======================================= */
+/* ===========================================
+   📄 Form Inputs
+   =========================================== */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+  outline: none;
+}
+
+/* ===========================================
+   ✨ Typography
+   =========================================== */
+h1, h2, h3 {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+p, label, span {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* ===========================================
+   💫 Utility Styles
+   =========================================== */
 .text-center {
   text-align: center;
 }
 
-.page-enter {
+.fade-in {
   animation: fadeIn 0.5s ease;
 }
 
@@ -180,38 +234,23 @@ footer {
   }
 }
 
-/* =======================================
-   📱 RESPONSIVE DESIGN
-   ======================================= */
-@media (max-width: 1024px) {
+/* ===========================================
+   📱 Responsive Design
+   =========================================== */
+@media (max-width: 768px) {
   main {
     padding: 15px;
   }
-}
 
-@media (max-width: 768px) {
   .theme-toggle {
-    padding: 8px 16px 0 0;
-  }
-
-  .theme-toggle button {
-    font-size: 0.85rem;
-    padding: 5px 12px;
-  }
-
-  footer {
-    font-size: 0.85rem;
-    padding: 8px 0;
+    justify-content: center;
+    padding-right: 0;
   }
 }
 
 @media (max-width: 480px) {
   main {
     padding: 10px;
-  }
-
-  .theme-toggle {
-    padding: 6px 10px 0 0;
   }
 
   .theme-toggle button {

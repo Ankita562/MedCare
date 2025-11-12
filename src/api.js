@@ -7,9 +7,9 @@ import {
   fakeReports,
 } from "./data/fakeData";
 
-// In-memory mock database
+// 🧠 In-memory mock database
 let patient = { ...fakePatientDetails };
-let medicines = [...fakeMedicines.length ? fakeMedicines : [
+let medicines = [...(fakeMedicines.length ? fakeMedicines : [
   {
     id: "M001",
     name: "Paracetamol",
@@ -18,16 +18,17 @@ let medicines = [...fakeMedicines.length ? fakeMedicines : [
     startDate: "2025-11-01",
     endDate: "2025-12-01",
     notes: "Take after meals",
-  }
-]];
+  },
+])];
 let history = [...fakeHistory];
 let contacts = [...fakeContacts];
 let reports = [...fakeReports];
 
-// Simulated delay
+// ⏳ Simulated delay
 const delay = (ms = 300) => new Promise((res) => setTimeout(res, ms));
 
-export const api = {
+// 🩺 Define the API object FIRST, then export it
+const api = {
   // 🧍 Patient APIs
   patient: {
     get: async () => {
@@ -68,8 +69,6 @@ export const api = {
     },
     remove: async (id) => {
       await delay();
-      const exists = medicines.some((m) => m.id === id);
-      if (!exists) return { data: { ok: false } };
       medicines = medicines.filter((m) => m.id !== id);
       return { data: { ok: true } };
     },
@@ -126,7 +125,7 @@ export const api = {
     },
   },
 
-  // 🧹 Optional Reset Utility
+  // 🧹 Reset Utility
   reset: async () => {
     await delay();
     patient = { ...fakePatientDetails };
@@ -137,3 +136,6 @@ export const api = {
     return { ok: true };
   },
 };
+
+// ✅ Correct export
+export { api };

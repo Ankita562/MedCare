@@ -1,52 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import { api } from '../api';
-import './PatientDetailsForm.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { api } from "../api";
+import "./PatientDetailsForm.css";
 
 const PatientDetailsForm = ({ onSubmit }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    gender: '',
-    weight: '',
-    allergies: '',
-    contact: '',
-    email: ''
+    name: "",
+    age: "",
+    gender: "",
+    weight: "",
+    allergies: "",
+    contact: "",
+    email: "",
   });
 
-  // Load saved data from localStorage
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Load from localStorage if available
   useEffect(() => {
-    const saved = localStorage.getItem('patientDetails');
+    const saved = localStorage.getItem("patientDetails");
     if (saved) {
       try {
         setFormData(JSON.parse(saved));
       } catch {
-        console.warn('Invalid patientDetails in localStorage');
+        console.warn("Invalid patientDetails data in localStorage");
       }
     }
   }, []);
 
-  // Handle input changes
+  // Handle input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
+  // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem('patientDetails', JSON.stringify(formData));
+
+    // Simple validation
+    if (!formData.name || !formData.age || !formData.contact) {
+      setMessage("⚠️ Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
     try {
+      // Save locally + in mock API
+      localStorage.setItem("patientDetails", JSON.stringify(formData));
       await api.patient.submit(formData);
+
+      setMessage("✅ Details saved successfully!");
       if (onSubmit) onSubmit();
+
+      // Navigate to next step
+      setTimeout(() => navigate("/next-step"), 1000);
     } catch (error) {
-      console.error('Failed to submit patient details:', error);
+      console.error("❌ Error submitting patient details:", error);
+      setMessage("❌ Failed to save details. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <main className="patient-form">
-      <h1>🧑‍⚕️ Enter Patient Details</h1>
-      <form onSubmit={handleSubmit} noValidate>
+    <main className="patient-form fade-in">
+      <h1>🧑‍⚕️ Patient Information</h1>
+      <p className="form-subtitle">Please enter your medical details carefully.</p>
+
+      <form onSubmit={handleSubmit}>
         <label>
           Full Name
           <input
@@ -130,8 +157,12 @@ const PatientDetailsForm = ({ onSubmit }) => {
           />
         </label>
 
-        <button type="submit">💾 Save & Continue</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "⏳ Saving..." : "💾 Save & Continue"}
+        </button>
       </form>
+
+      {message && <p className="form-message">{message}</p>}
     </main>
   );
 };

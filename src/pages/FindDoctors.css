@@ -1,34 +1,39 @@
-/* ================================
-   Find Doctors Page (Dark + Light)
-================================== */
+/* ======================================
+   ❤️ Find Doctors Page – MedCare Theme
+   Red × Pastel Pink Palette
+   Light + Dark Mode Supported
+   ====================================== */
 
 .find-doctors-page {
   min-height: 100vh;
   padding: 2rem;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Light Mode */
+/* ===== Light Mode ===== */
 .light .find-doctors-page {
-  background: linear-gradient(180deg, #f9faff 0%, #eef1ff 100%);
-  color: #2c2c2c;
+  background: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
+  color: #2b1b1d;
 }
 
-/* Dark Mode */
+/* ===== Dark Mode ===== */
 .dark .find-doctors-page {
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-  color: #eaeaea;
+  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
+  color: #fce4ec;
 }
 
+/* ===== Headings ===== */
 .find-doctors-page h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: var(--accent-color, #ff6b6b);
+  font-weight: 700;
 }
 
 .subtitle {
-  color: #777;
+  color: var(--text-muted, #6b4f52);
   margin-bottom: 2rem;
   font-size: 1.1rem;
 }
@@ -47,18 +52,24 @@
   padding: 12px 18px;
   width: 300px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color, #ffd9e2);
   outline: none;
   font-size: 1rem;
+  background: var(--input-bg, #fff5f7);
+  color: var(--text-color, #2b1b1d);
+  transition: all 0.3s ease;
 }
 
 .search-bar input:focus {
-  border-color: #6e8efb;
+  border-color: var(--accent-color, #ff6b6b);
+  box-shadow: 0 0 6px rgba(255, 107, 107, 0.3);
+  background-color: #fff;
 }
 
+/* ===== Search Button ===== */
 .search-btn {
   padding: 12px 18px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
   color: white;
   border: none;
   border-radius: 10px;
@@ -69,7 +80,7 @@
 
 .search-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(110, 142, 251, 0.3);
+  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.35);
 }
 
 /* ===== Doctor Cards ===== */
@@ -81,49 +92,102 @@
 }
 
 .doctor-card {
-  background: var(--card-bg, #fff);
-  border-radius: 12px;
+  background: var(--card-bg, #ffffff);
+  border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: var(--card-shadow, 0 8px 20px rgba(0, 0, 0, 0.08));
+  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .doctor-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(110, 142, 251, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.25);
 }
 
 .doctor-card h3 {
   font-size: 1.2rem;
-  color: var(--heading-color, #4a4a9c);
-  margin-bottom: 0.5rem;
+  color: var(--accent-color, #ff6b6b);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .doctor-card p {
   font-size: 0.95rem;
-  color: var(--text-muted, #555);
+  color: var(--text-muted, #6b4f52);
   margin: 3px 0;
 }
 
+/* ===== Contact Button ===== */
 .contact-btn {
   margin-top: 1rem;
   padding: 10px 16px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .contact-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(110, 142, 251, 0.3);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.3);
 }
 
+/* ===== No Results Text ===== */
 .no-results {
   font-size: 1rem;
-  color: #777;
+  color: var(--text-muted, #6b4f52);
   margin-top: 2rem;
+  font-style: italic;
+}
+
+/* ===== Dark Mode Variables ===== */
+.dark .doctor-card {
+  background: #2b1b22;
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
+}
+
+.dark .doctor-card p {
+  color: #fcdde1;
+}
+
+.dark .subtitle {
+  color: #d8b8bd;
+}
+
+.dark .search-bar input {
+  background: #1b0f13;
+  border-color: #3a1f26;
+  color: #fce4ec;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .find-doctors-page h1 {
+    font-size: 1.7rem;
+  }
+
+  .search-bar input {
+    width: 90%;
+  }
+
+  .doctor-card {
+    padding: 1.2rem;
+  }
 }
