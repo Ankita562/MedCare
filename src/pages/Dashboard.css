@@ -1,231 +1,103 @@
-/* ==============================
-   ❤️ MedCare Dashboard Template
-   Responsive + Interactive
-   ============================== */
-
-.dashboard-page {
-  padding: 2rem;
-  background: var(--bg-color);
-  transition: background 0.4s, color 0.4s;
+/* CONTAINER */
+.dashboard-container {
+  padding: 30px;
+  animation: fadeIn 0.4s ease;
 }
 
-.section {
-  margin-bottom: 2rem;
+/* HEADER */
+.dashboard-header h1 {
+  color: #7a4a23;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
-/* PATIENT CARD */
-.patient-card {
-  background: var(--card-bg);
-  border-radius: 18px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 6px 18px rgba(255, 107, 107, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.dashboard-header p {
+  color: #a1744c;
+  margin-bottom: 25px;
 }
 
-.patient-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
+/* GRID LAYOUT */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
 }
 
-.patient-header h2 {
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
+/* CARDS */
+.dashboard-card {
+  background: #fff7ec;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border: 2px solid #f0e0c8;
+  transition: 0.25s ease;
 }
 
-.subtext {
-  color: var(--muted-text);
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.18);
+}
+
+/* ICON */
+.card-icon {
+  background: #f7e3c4;
+  padding: 12px;
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  color: #7a4a23;
+}
+
+/* TITLES */
+.dashboard-card h3 {
+  font-size: 1.2rem;
+  color: #7a4a23;
+  margin-bottom: 6px;
+}
+
+.dashboard-card p {
+  color: #5a4634;
   font-size: 0.95rem;
 }
 
-/* ALERTS */
-.alerts-grid {
+/* LARGE CARDS */
+.large-card {
+  grid-column: span 2;
+}
+
+.details-grid {
+  margin-top: 15px;
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
-.alert-card {
-  background: #fff0f3;
-  padding: 1rem;
-  border-left: 4px solid var(--accent-color);
+.details-grid p {
+  background: #fdf4e8;
+  padding: 10px;
   border-radius: 10px;
-  transition: transform 0.2s;
+  font-size: 0.9rem;
 }
 
-.alert-card:hover {
-  transform: translateX(5px);
-}
- /* ===============================
-   🚨 Health Alerts – Light Mode
-   =============================== */
-.alerts-section h2 {
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+/* SUMMARY LIST */
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
 }
 
-.alerts-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.alert-card {
-  background: #fff0f3; /* light pink base */
-  padding: 1rem 1.2rem;
-  border-left: 4px solid var(--accent-color);
+.summary-list li {
+  background: #fdf4e8;
+  padding: 10px;
+  margin-bottom: 8px;
   border-radius: 10px;
-  color: #2b1b1d; /* readable dark text */
-  transition: all 0.3s ease;
-}
-
-.alert-card:hover {
-  transform: translateX(5px);
-  box-shadow: 0 6px 14px rgba(255, 107, 107, 0.15);
-}
-
-/* ===============================
-   🌙 Health Alerts – Dark Mode Fix
-   =============================== */
-body.dark .alert-card {
-  background: #3a1f26; /* deeper muted rose background */
-  border-left-color: #ff8a80; /* soft glowing coral */
-  color: #ffe9ef; /* readable text on dark bg */
-  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.15);
-}
-
-body.dark .alert-card:hover {
-  background: #4b242e; /* slightly lighter on hover */
-  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
-  transform: translateX(5px);
-}
-
-
-/* MEDICINES SECTION */
-.section-header {
+  font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.add-btn {
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
-  color: white;
-  padding: 8px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.add-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 12px rgba(255, 107, 107, 0.3);
-}
-
-/* Template Grid */
-.medicine-template-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.medicine-template-card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.medicine-template-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
-}
-
-.medicine-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dose {
-  font-weight: 600;
-  color: var(--accent-color);
-}
-
-.medicine-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.edit-btn {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.reminder-btn {
-  background: transparent;
-  border: 1px solid var(--accent-color);
-  border-radius: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.reminder-btn:hover {
-  background: var(--accent-color);
-  color: white;
-}
-
-/* QUICK ACTIONS */
-
-/* QUICK ACTIONS */
-.quick-actions {
-  margin-top: 2rem;
-}
-
-.actions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1rem;
-}
-
-.action-card {
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
-  color: #fff;
-  padding: 1.2rem;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.2s ease;
-}
-
-.action-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.35);
-  filter: brightness(1.1);
-}
-
-/* Dark Mode Quick Actions */
-body.dark .action-card {
-  background: linear-gradient(135deg, #ff8a80, #ffb6c1);
-  color: #fff5f7;
-  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
-}
-
-body.dark .action-card:hover {
-  filter: brightness(1.15);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .section {
-    margin-bottom: 1.5rem;
-  }
-  .medicine-template-card {
-    padding: 1.2rem;
-  }
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

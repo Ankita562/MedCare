@@ -1,6 +1,6 @@
 /* =========================================
-   ❤️ MEDCARE — GLOBAL BASE THEME
-   Light × Dark Mode | Red × Pastel Pink
+   🤎 MEDCARE — BROWN × BEIGE THEME
+   Light × Dark Mode | Warm Earth Tones
    ========================================= */
 
 /* Font Import */
@@ -10,30 +10,30 @@
    🌞 LIGHT MODE VARIABLES (Default)
    ========================================= */
 :root {
-  --bg: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
-  --text: #2b1b1d;
+  --bg: linear-gradient(180deg, #FFF7ED 0%, #F5E9D6 100%);
+  --text: #3B2C22;
   --card: #ffffff;
-  --primary: #ff6b6b;
-  --secondary: #ffb6c1;
-  --border: #ffd9e2;
-  --muted: #6b4f52;
-  --gradient: linear-gradient(135deg, #ff6b6b, #ffb6c1);
-  --shadow: rgba(255, 107, 107, 0.15);
+  --primary: #8B5E3C;       /* Warm Brown */
+  --secondary: #C58F63;     /* Caramel */
+  --border: #E8D7C3;        /* Soft Border */
+  --muted: #9b8577;
+  --gradient: linear-gradient(135deg, #8B5E3C, #C58F63);
+  --shadow: rgba(139, 94, 60, 0.15);
 }
 
 /* =========================================
    🌙 DARK MODE VARIABLES
    ========================================= */
 body.dark, body.dark-mode {
-  --bg: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  --text: #fce4ec;
-  --card: #2b1b22;
-  --primary: #ff8a80;
-  --secondary: #ffb6c1;
-  --border: #3a1f26;
-  --muted: #d8b8bd;
-  --gradient: linear-gradient(135deg, #ff8a80, #ffb6c1);
-  --shadow: rgba(255, 182, 193, 0.15);
+  --bg: linear-gradient(180deg, #231A15 0%, #3B2C22 100%);
+  --text: #f0e2d3;
+  --card: #3B2C22;
+  --primary: #C58F63;     /* Caramel becomes primary in dark mode */
+  --secondary: #D9B895;   
+  --border: #4a3a32;
+  --muted: #c6b3a2;
+  --gradient: linear-gradient(135deg, #C58F63, #D9B895);
+  --shadow: rgba(197, 143, 99, 0.15);
 }
 
 /* =========================================
@@ -45,8 +45,8 @@ body {
   color: var(--text);
   margin: 0;
   padding: 0;
-  line-height: 1.6;
   transition: background 0.4s ease, color 0.4s ease;
+  line-height: 1.6;
 }
 
 /* Main Wrapper */
@@ -71,24 +71,21 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Logo */
 .nav .logo {
   font-weight: 700;
   color: var(--primary);
   font-size: 1.3rem;
 }
 
-/* Nav Links */
 .nav a {
   margin-right: 16px;
-  text-decoration: none;
   color: var(--primary);
+  text-decoration: none;
   font-size: 1.05rem;
   font-weight: 600;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: 0.2s;
 }
 
 .nav a:hover {
@@ -105,7 +102,7 @@ body {
   padding: 8px 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .theme-toggle-btn:hover {
@@ -120,9 +117,9 @@ body {
   background: var(--card);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow);
   margin-bottom: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: 0.3s;
 }
 
 .card:hover {
@@ -143,7 +140,7 @@ body {
   font-weight: 500;
   background: var(--gradient);
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn:hover {
@@ -170,16 +167,14 @@ body {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  font-size: 1rem;
-  color: var(--text);
   background: var(--card);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
+  color: var(--text);
+  transition: 0.3s;
 }
 
 .input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 4px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 0 4px rgba(139, 94, 60, 0.3);
   outline: none;
 }
 
@@ -203,7 +198,7 @@ body {
 }
 
 /* =========================================
-   📱 RESPONSIVE DESIGN
+   📱 RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
   .nav {
@@ -211,11 +206,9 @@ body {
     align-items: flex-start;
     gap: 8px;
   }
-
   .nav a {
     font-size: 1rem;
   }
-
   .container {
     padding: 12px;
   }

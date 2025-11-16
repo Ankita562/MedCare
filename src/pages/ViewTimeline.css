@@ -1,5 +1,5 @@
 /* ================================
-   View Timeline Page — MedCare Theme
+   View Timeline Page — MedCare Theme (Brown × Beige)
    ================================ */
 
 .timeline-page-container {
@@ -17,12 +17,12 @@
 .timeline-page-container h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
+  color: var(--accent-color);   /* Brown */
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: var(--muted-text);
+  color: var(--muted-text);     /* Muted Mocha */
   margin-bottom: 2rem;
 }
 
@@ -50,7 +50,7 @@
   left: 24px;
   width: 3px;
   height: 100%;
-  background: var(--accent-color);
+  background: var(--accent-color); /* Warm Brown Line */
   opacity: 0.4;
   border-radius: 2px;
 }
@@ -68,7 +68,7 @@
   left: 0;
   top: 0;
   font-size: 1.5rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Brown dot */
 }
 
 /* Content Box */
@@ -77,20 +77,20 @@
   padding: 1rem 1.5rem;
   border-radius: 12px;
   border: 1px solid var(--card-border);
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 6px 16px rgba(139, 94, 60, 0.1); /* Brown shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
 }
 
 .timeline-content:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px var(--shadow-color);
+  box-shadow: 0 8px 22px var(--shadow-color); /* Caramel shadow */
 }
 
 .timeline-content h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Brown header */
 }
 
 .event-desc {

@@ -1,13 +1,17 @@
+/* =======================================
+   🤎 Tracker Page – Brown × Beige Theme
+   ======================================= */
+
 .tracker-page {
   padding: 2rem;
-  background: var(--page-bg, #fff5f7);
-  color: var(--text-color, #2b1b1d);
+  background: var(--page-bg, #F7F2EC);
+  color: var(--text-color, #4A3828);
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
 }
 
 .tracker-page h1 {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color, #8B5E3C);
   text-align: center;
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -15,11 +19,13 @@
 
 .tracker-page p {
   text-align: center;
-  color: var(--text-muted, #6b4f52);
+  color: var(--text-muted, #9E7A59);
   margin-bottom: 2rem;
 }
 
-/* Cards layout */
+/* =======================================
+   Cards Layout
+   ======================================= */
 .tracker-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -27,43 +33,50 @@
 }
 
 .tracker-card {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg, #FFFFFF);
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.08);
+  box-shadow: 0 6px 20px rgba(139, 94, 60, 0.1);
   padding: 1.2rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tracker-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 8px 24px rgba(139, 94, 60, 0.2);
 }
 
 .tracker-card h3 {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color, #8B5E3C);
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
+/* =======================================
+   Inputs
+   ======================================= */
 .tracker-card input,
 .tracker-card textarea {
   width: 100%;
-  border: 1px solid #ffd9e2;
+  border: 1px solid #D7C4B2;
   border-radius: 10px;
   padding: 8px 10px;
   margin-bottom: 0.6rem;
   font-size: 0.9rem;
-  background: #fffafc;
+  background: #FAF5EF;
+  color: #4A3828;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .tracker-card input:focus,
 .tracker-card textarea:focus {
-  border-color: var(--accent-color, #ff6b6b);
+  border-color: var(--accent-color, #8B5E3C);
+  background: #FFF8F1;
 }
 
-/* Buttons */
+/* =======================================
+   Buttons
+   ======================================= */
 .tracker-actions {
   display: flex;
   justify-content: center;
@@ -82,25 +95,55 @@
   transition: all 0.3s ease;
 }
 
+/* Brown Gradient Button */
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  background: linear-gradient(135deg, #8B5E3C, #C79A6B);
   color: white;
-}
-
-.btn-secondary {
-  background: #fff0f3;
-  color: #b23a48;
-  border: 1px solid #ffc4cc;
+  box-shadow: 0 6px 15px rgba(139, 94, 60, 0.25);
 }
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 12px 20px rgba(139, 94, 60, 0.3);
+}
+
+/* Soft Beige Button */
+.btn-secondary {
+  background: #F1E4D4;
+  color: #8B5E3C;
+  border: 1px solid #D6C2AD;
 }
 
 .btn-secondary:hover {
-  background: #ffe1e6;
+  background: #E9D6C2;
   transform: translateY(-2px);
+}
+
+/* =======================================
+   Dark Mode
+   ======================================= */
+
+body.dark .tracker-page {
+  background: linear-gradient(180deg, #2A1C14 0%, #1C120D 100%);
+  color: #EAD9C5;
+}
+
+body.dark .tracker-card {
+  background: #3A2A1F;
+  box-shadow: 0 6px 18px rgba(199, 154, 107, 0.15);
+}
+
+body.dark input,
+body.dark textarea {
+  background: #2B1C14;
+  border-color: #5C442F;
+  color: #EAD9C5;
+}
+
+body.dark input:focus,
+body.dark textarea:focus {
+  border-color: #C79A6B;
+  background: #3A2A1F;
 }
 
 /* Responsive */
@@ -113,19 +156,4 @@
     padding: 1rem;
   }
 }
-body.dark .tracker-page {
-  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  color: #fce4ec;
-}
 
-body.dark .tracker-card {
-  background: #2b1b22;
-  box-shadow: 0 6px 18px rgba(255, 182, 193, 0.1);
-}
-
-body.dark input,
-body.dark textarea {
-  background: #3a1f26;
-  color: #fce4ec;
-  border: 1px solid #5b2e38;
-}

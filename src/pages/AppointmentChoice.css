@@ -1,7 +1,6 @@
 /* ===========================================
-   ❤️ Appointment Choice Page – MedCare Theme
-   Red × Pastel Pink Palette
-   Light + Dark Mode Supported
+   🤎 Appointment Choice Page – MedCare Theme
+   Brown × Beige Palette (Light + Dark Mode)
    =========================================== */
 
 /* ===== Page Container ===== */
@@ -39,7 +38,7 @@
 /* ===== Headings ===== */
 .choice-card h2 {
   font-size: 1.9rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* warm brown */
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
@@ -70,15 +69,15 @@
   transition: all 0.3s ease;
 }
 
-/* ===== Primary (Apollo / Online Booking) ===== */
+/* ===== Primary (Online / Apollo Booking) ===== */
 .primary-btn {
-  background: var(--btn-gradient);
-  color: #fff;
-  box-shadow: 0 6px 15px var(--shadow-color);
+  background: linear-gradient(135deg, #8B5E3C, #C58F63);
+  color: white;
+  box-shadow: 0 6px 15px rgba(139, 94, 60, 0.25);
 }
 .primary-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px var(--shadow-color);
+  box-shadow: 0 8px 20px rgba(139, 94, 60, 0.35);
 }
 
 /* ===== Secondary (Manual Booking) ===== */
@@ -88,36 +87,36 @@
   border: 1px solid var(--card-border);
 }
 .secondary-btn:hover {
-  background: var(--secondary-color);
-  color: #fff;
+  background: #E8D3BD; /* beige highlight */
+  color: #4A2F1F;
   transform: translateY(-2px);
 }
 
-/* ===== Upload (Scan or File Upload) ===== */
+/* ===== Upload Button ===== */
 .upload-btn {
-  background: #fff0f3;
-  color: #b23a48;
-  border: 1px solid #ffc4cc;
+  background: #F5E8D8;     /* light sand beige */
+  color: #6B4B32;          /* deep brown */
+  border: 1px solid #E4C7A8;
   transition: all 0.3s ease;
 }
 .upload-btn:hover {
-  background: #ffe1e6;
+  background: #EAD8C2;
   transform: translateY(-2px);
 }
 
-/* ===== Dark Mode Adjustments (auto from global vars) ===== */
+/* ===== Dark Mode Adjustments ===== */
 body.dark-mode .choice-card {
-  background: var(--card-bg);
-  border-color: var(--card-border);
+  background: #3B2C22;
+  border-color: #664C38;
 }
 
 body.dark-mode .upload-btn {
-  background: #3a1f26;
-  color: #ffb6c1;
-  border-color: #5b2e38;
+  background: #2E221A;
+  color: #EED8C0;
+  border-color: #5B4633;
 }
 body.dark-mode .upload-btn:hover {
-  background: #4b242e;
+  background: #3B2C22;
 }
 
 /* ===== Animations ===== */
@@ -145,3 +144,4 @@ body.dark-mode .upload-btn:hover {
     font-size: 0.95rem;
   }
 }
+

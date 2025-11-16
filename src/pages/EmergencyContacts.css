@@ -1,23 +1,24 @@
 /* ==========================================
-   ❤️ Emergency Contacts Page – MedCare Theme
-   Red × Pastel Pink Palette
+   🤎 Emergency Contacts Page – MedCare Theme
+   Brown × Beige Palette
    Light + Dark Mode Supported
    ========================================== */
 
 /* ===== Page Layout ===== */
 .contacts-page {
-  background: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
+  background: linear-gradient(180deg, #FFF7ED 0%, #F5E9D6 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 50px 20px;
   font-family: "Poppins", sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
+  color: var(--text-color);
 }
 
 .dark .contacts-page {
-  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  color: #fce4ec;
+  background: linear-gradient(180deg, #231A15 0%, #3B2C22 100%);
+  color: var(--text-color);
 }
 
 .contacts-container {
@@ -27,7 +28,7 @@
 
 /* ===== Page Header ===== */
 .contacts-title {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* brown */
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 5px;
@@ -35,7 +36,7 @@
 }
 
 .contacts-subtitle {
-  color: var(--text-muted, #6b4f52);
+  color: var(--muted-text); /* mocha */
   font-size: 1rem;
   text-align: center;
   margin-bottom: 30px;
@@ -43,17 +44,17 @@
 
 /* ===== Form Section ===== */
 .contact-form {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg);
   padding: 25px 30px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.1);
   margin-bottom: 40px;
   animation: fadeIn 0.4s ease-in-out;
   transition: background 0.4s ease, color 0.4s ease;
 }
 
 .contact-form h3 {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* brown */
   margin-bottom: 20px;
   font-weight: 600;
   text-align: center;
@@ -66,7 +67,7 @@
 
 .input-group label {
   display: block;
-  color: var(--text-color, #2b1b1d);
+  color: var(--text-color);
   font-size: 0.9rem;
   margin-bottom: 6px;
   font-weight: 500;
@@ -75,24 +76,24 @@
 .input-group input {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid var(--border-color, #ffd9e2);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   font-size: 0.95rem;
-  background: var(--input-bg, #fff5f7);
-  color: var(--text-color, #2b1b1d);
+  background: #F5E9D6;
+  color: var(--text-color);
   transition: all 0.3s ease;
 }
 
 .input-group input:focus {
-  border-color: var(--accent-color, #ff6b6b);
-  box-shadow: 0 0 6px rgba(255, 107, 107, 0.3);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(139, 94, 60, 0.3);
   outline: none;
 }
 
 /* ===== Add Button ===== */
 .btn-add {
   width: 100%;
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  background: linear-gradient(135deg, #8B5E3C, #C58F63); /* brown → caramel */
   color: white;
   border: none;
   padding: 12px 18px;
@@ -105,19 +106,19 @@
 
 .btn-add:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.35);
+  box-shadow: 0 5px 15px rgba(139, 94, 60, 0.35);
 }
 
 /* ===== Contacts List ===== */
 .contacts-list h3 {
   margin-bottom: 15px;
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color);
   font-weight: 600;
 }
 
 .empty-text {
   text-align: center;
-  color: var(--text-muted, #6b4f52);
+  color: var(--muted-text);
   font-size: 0.95rem;
 }
 
@@ -131,62 +132,62 @@
 .contact-card {
   display: flex;
   align-items: center;
-  background: var(--card-bg, #ffffff);
+  background: var(--card-bg);
   padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 6px 16px rgba(139, 94, 60, 0.12);
   transition: transform 0.2s, box-shadow 0.3s;
   animation: fadeIn 0.4s ease-in-out;
 }
 
 .contact-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 8px 18px rgba(139, 94, 60, 0.25);
 }
 
 /* ===== Contact Info ===== */
 .contact-icon {
   font-size: 2rem;
   margin-right: 14px;
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color);
 }
 
 .contact-info h4 {
   margin: 0;
-  color: var(--text-color, #2b1b1d);
+  color: var(--text-color);
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .contact-info .relation {
-  color: var(--text-muted, #6b4f52);
+  color: var(--muted-text);
   font-size: 0.9rem;
 }
 
 .contact-info .phone {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color);
   font-weight: 500;
   margin-top: 4px;
 }
 
 /* ===== Dark Mode Variables ===== */
 .dark .contact-card {
-  background: #2b1b22;
-  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
+  background: #3B2C22;
+  box-shadow: 0 8px 20px rgba(197, 143, 99, 0.15);
 }
 
 .dark .input-group input {
-  background: #1b0f13;
-  border-color: #3a1f26;
-  color: #fce4ec;
+  background: #231A15;
+  border-color: #4A3A32;
+  color: #F0E2D3;
 }
 
 .dark .btn-add {
-  background: linear-gradient(135deg, #ff8a80, #ffb6c1);
+  background: linear-gradient(135deg, #C58F63, #D9B895);
 }
 
 .dark .contact-info h4 {
-  color: #fcdde1;
+  color: #F0E2D3;
 }
 
 /* ===== Animation ===== */

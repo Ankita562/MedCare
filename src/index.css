@@ -1,6 +1,6 @@
 /* ===========================================
-   ❤️ MEDCARE — GLOBAL THEME SYSTEM
-   Unified Red × Pastel Pink Palette
+   🤎 MEDCARE — GLOBAL THEME SYSTEM
+   Warm Brown × Soft Beige Palette
    Light + Dark Mode Compatible
    =========================================== */
 
@@ -11,15 +11,17 @@
    🌞 LIGHT MODE VARIABLES (Default)
    =========================================== */
 :root {
-  --bg: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
-  --text: #2b1b1d;
-  --card: #ffffff;
-  --primary: #ff6b6b;
-  --secondary: #ffb6c1;
-  --border: #ffd9e2;
-  --muted: #6b4f52;
-  --shadow: rgba(255, 107, 107, 0.15);
-  --gradient: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  --bg: linear-gradient(180deg, #FFF7ED 0%, #F5E9D6 100%);
+  --text: #3B2C22;
+  --card: #FFFFFF;
+
+  --primary: #8B5E3C;     /* Main Warm Brown */
+  --secondary: #C58F63;   /* Caramel Accent */
+  --border: #E8D7C3;
+  --muted: #a38f82;
+
+  --shadow: rgba(139, 94, 60, 0.15);
+  --gradient: linear-gradient(135deg, #8B5E3C, #C58F63);
 }
 
 /* ===========================================
@@ -27,15 +29,17 @@
    =========================================== */
 body.dark,
 body.dark-mode {
-  --bg: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  --text: #fce4ec;
-  --card: #2b1b22;
-  --primary: #ff8a80;
-  --secondary: #ffb6c1;
-  --border: #3a1f26;
-  --muted: #d8b8bd;
-  --shadow: rgba(255, 182, 193, 0.15);
-  --gradient: linear-gradient(135deg, #ff8a80, #ffb6c1);
+  --bg: linear-gradient(180deg, #231A15 0%, #3B2C22 100%);
+  --text: #f0e2d3;
+
+  --card: #3B2C22;
+  --primary: #C58F63;
+  --secondary: #D9B895;
+  --border: #4a3a32;
+  --muted: #c9b8aa;
+
+  --shadow: rgba(197, 143, 99, 0.15);
+  --gradient: linear-gradient(135deg, #C58F63, #D9B895);
 }
 
 /* ===========================================
@@ -88,7 +92,7 @@ a {
 }
 
 a:hover {
-  color: #ff859e;
+  color: var(--secondary);
 }
 
 /* ===========================================
@@ -141,7 +145,7 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.25);
   outline: none;
 }
 
@@ -203,4 +207,3 @@ input:focus, textarea:focus, select:focus {
     padding: 1rem;
   }
 }
-

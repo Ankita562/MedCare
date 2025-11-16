@@ -1,7 +1,6 @@
 /* ===============================================
-   ❤️ Doctor Appointment Page – MedCare Global Theme
-   Red × Pastel Pink Palette
-   Unified Light + Dark Mode Styling
+   🤎 Doctor Appointment Page – MedCare Global Theme
+   Brown × Beige Palette | Light + Dark Mode
    =============================================== */
 
 /* ===== Page Container ===== */
@@ -39,7 +38,7 @@
 /* ===== Headings ===== */
 .appointment-card h1 {
   font-size: 2rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* brown */
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -71,13 +70,13 @@
 
 /* ===== Primary (Book via Apollo) ===== */
 .primary-btn {
-  background: var(--btn-gradient);
+  background: linear-gradient(135deg, #8B5E3C, #C58F63); /* brown → caramel */
   color: #fff;
-  box-shadow: 0 6px 15px var(--shadow-color);
+  box-shadow: 0 6px 15px rgba(139, 94, 60, 0.25);
 }
 .primary-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px var(--shadow-color);
+  box-shadow: 0 8px 20px rgba(139, 94, 60, 0.35);
 }
 
 /* ===== Secondary (Manual Booking) ===== */
@@ -87,7 +86,7 @@
   border: 1px solid var(--card-border);
 }
 .secondary-btn:hover {
-  background: var(--secondary-color);
+  background: #C58F63; /* caramel */
   color: #fff;
   transform: translateY(-2px);
 }
@@ -195,4 +194,3 @@
     font-size: 0.95rem;
   }
 }
-

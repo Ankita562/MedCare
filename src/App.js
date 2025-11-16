@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-// 🧭 Components
+// Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// 🩺 Pages
+// Pages
 import Auth from "./pages/Auth";
 import PatientDetailsForm from "./pages/PatientDetailsForm";
 import AppointmentChoice from "./pages/AppointmentChoice";
@@ -20,16 +20,16 @@ import MedicalReports from "./pages/MedicalReports";
 import ViewTimeline from "./pages/ViewTimeline";
 import Analytics from "./pages/Analytics";
 import FindDoctors from "./pages/FindDoctors";
+import Profile from "./pages/Profile";
 
-// 🧠 Data + API
+// Data
 import { fakePatientDetails } from "./data/fakeData";
-import { api } from "./api";
 
-// 🎨 Styles
+// Styles
 import "./App.css";
 
 function App() {
-  // ------------------ STATE ------------------
+  // State
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [detailsSubmitted, setDetailsSubmitted] = useState(false);
   const [patientInfo] = useState(fakePatientDetails);
@@ -37,26 +37,25 @@ function App() {
     () => localStorage.getItem("darkMode") === "true"
   );
 
-  // ------------------ EFFECTS ------------------
+  // ⭐ SIDEBAR STATE
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  // ✅ Load login state once
+  // Effects
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
   }, []);
 
-  // ✅ Persist login state
   useEffect(() => {
     localStorage.setItem("isLoggedIn", isLoggedIn);
   }, [isLoggedIn]);
 
-  // ✅ Apply dark/light mode globally
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
     document.body.classList.toggle("light-mode", !darkMode);
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  // ------------------ HANDLERS ------------------
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
@@ -65,160 +64,141 @@ function App() {
   // ------------------ MAIN RETURN ------------------
   return (
     <div className={`app-container ${darkMode ? "dark-mode" : "light-mode"}`}>
-      {/* 🧭 Navbar */}
-      <Navbar
-        onLogout={handleLogout}
-        isLoggedIn={isLoggedIn}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
 
-      {/* 🌐 Page Content */}
-      <main className="fade-in" style={{ minHeight: "80vh", overflowX: "hidden" }}>
+      {/* SHOW NAVBAR ONLY WHEN LOGGED IN */}
+      {isLoggedIn && (
+        <Navbar
+          onLogout={handleLogout}
+          isLoggedIn={isLoggedIn}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          setSidebarOpen={setSidebarOpen}
+        />
+      )}
+
+      {/* MAIN CONTENT */}
+      <main
+        className="fade-in"
+        style={{
+          minHeight: "80vh",
+          overflowX: "hidden",
+
+          // ⭐ Apply margin only when logged in
+          marginLeft: isLoggedIn ? (sidebarOpen ? "240px" : "70px") : "0px",
+
+          transition: "margin-left 0.3s ease",
+        }}
+      >
         <Routes>
-          {/* 🏠 Default Redirect */}
           <Route
             path="/"
             element={
-              isLoggedIn ? (
-                <Navigate to="/dashboard" replace />
-              ) : (
-                <Navigate to="/login" replace />
-              )
+              isLoggedIn ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
             }
           />
 
-          {/* 🔐 Auth */}
           <Route
             path="/login"
             element={<Auth onLogin={() => setIsLoggedIn(true)} />}
           />
+
           <Route
             path="/register"
             element={<Auth onLogin={() => setIsLoggedIn(true)} />}
           />
 
-          {/* 👤 Patient Details */}
+          <Route
+            path="/profile"
+            element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
+          />
+
           <Route
             path="/details"
             element={
               isLoggedIn ? (
                 <PatientDetailsForm onSubmit={() => setDetailsSubmitted(true)} />
               ) : (
-                <Navigate to="/login" replace />
+                <Navigate to="/login" />
               )
             }
           />
 
-          {/* 💬 Appointment Choice */}
           <Route
             path="/next-step"
             element={
-              detailsSubmitted ? (
-                <AppointmentChoice />
-              ) : (
-                <Navigate to="/details" replace />
-              )
+              detailsSubmitted ? <AppointmentChoice /> : <Navigate to="/details" />
             }
           />
 
-          {/* 🏠 Dashboard */}
           <Route
             path="/dashboard"
             element={
               isLoggedIn ? (
                 <Dashboard patient={patientInfo} darkMode={darkMode} />
               ) : (
-                <Navigate to="/login" replace />
+                <Navigate to="/login" />
               )
             }
           />
 
-          {/* 💊 Medicines */}
           <Route
             path="/medicines/new"
-            element={
-              isLoggedIn ? <AddEditMedicine /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <AddEditMedicine /> : <Navigate to="/login" />}
           />
+
           <Route
             path="/medicines/:id"
-            element={
-              isLoggedIn ? <AddEditMedicine /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <AddEditMedicine /> : <Navigate to="/login" />}
           />
 
-          {/* 🩺 Doctor Appointment */}
           <Route
             path="/appointments"
-            element={
-              isLoggedIn ? <DoctorAppointment /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <DoctorAppointment /> : <Navigate to="/login" />}
           />
 
-          {/* 📜 Timeline */}
           <Route
             path="/timeline"
-            element={
-              isLoggedIn ? <ViewTimeline /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <ViewTimeline /> : <Navigate to="/login" />}
           />
 
-          {/* 📊 Analytics */}
           <Route
             path="/analytics"
-            element={
-              isLoggedIn ? <Analytics /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <Analytics /> : <Navigate to="/login" />}
           />
 
-          {/* 🧾 Medical History / Reports */}
           <Route
             path="/medical-history"
-            element={
-              isLoggedIn ? <MedicalHistory /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <MedicalHistory /> : <Navigate to="/login" />}
           />
+
           <Route
             path="/reports"
-            element={
-              isLoggedIn ? <MedicalReports /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <MedicalReports /> : <Navigate to="/login" />}
           />
+
           <Route
             path="/scan-report"
-            element={
-              isLoggedIn ? <ScanReport /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <ScanReport /> : <Navigate to="/login" />}
           />
 
-          {/* 🚨 Emergency Contacts */}
           <Route
             path="/contacts"
-            element={
-              isLoggedIn ? <EmergencyContacts /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <EmergencyContacts /> : <Navigate to="/login" />}
           />
 
-          {/* 👨‍⚕️ Find Doctors */}
           <Route
             path="/doctors"
-            element={
-              isLoggedIn ? <FindDoctors /> : <Navigate to="/login" replace />
-            }
+            element={isLoggedIn ? <FindDoctors /> : <Navigate to="/login" />}
           />
 
-          {/* 🚫 Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
 
-      {/* 🦶 Footer */}
-      <Footer />
+      {/* FOOTER ONLY WHEN LOGGED IN */}
+      {isLoggedIn && <Footer />}
     </div>
   );
 }
 
 export default App;
-
-

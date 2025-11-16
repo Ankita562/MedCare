@@ -1,23 +1,23 @@
 /* ==========================================
-   ❤️ Medical History Page – MedCare Theme
-   Red × Pastel Pink Palette
-   Light + Dark Mode Supported
+   🤎 Medical History Page – MedCare Theme
+   Brown × Beige Palette | Light + Dark Mode
    ========================================== */
 
 /* ===== Page Layout ===== */
 .history-page {
-  background: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
+  background: linear-gradient(180deg, #FFF7ED 0%, #F5E9D6 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 50px 20px;
   font-family: "Poppins", sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
+  color: var(--text-color);
 }
 
 .dark .history-page {
-  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  color: #fce4ec;
+  background: linear-gradient(180deg, #231A15 0%, #3B2C22 100%);
+  color: var(--text-color);
 }
 
 .history-container {
@@ -27,7 +27,7 @@
 
 /* ===== Title and Subtitle ===== */
 .history-title {
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* brown */
   font-size: 2rem;
   text-align: center;
   margin-bottom: 8px;
@@ -35,7 +35,7 @@
 }
 
 .history-subtitle {
-  color: var(--muted-text, #6b4f52);
+  color: var(--muted-text); /* mocha */
   font-size: 1rem;
   text-align: center;
   margin-bottom: 40px;
@@ -43,17 +43,17 @@
 
 /* ===== Empty State ===== */
 .empty-state {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg);
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.1); /* brown */
   padding: 30px;
   text-align: center;
-  color: var(--muted-text, #6b4f52);
+  color: var(--muted-text);
   animation: fadeIn 0.4s ease-in-out;
 }
 
 .empty-hint {
-  color: #b76e79;
+  color: #A97454; /* caramel tone */
   font-size: 0.9rem;
   margin-top: 6px;
 }
@@ -67,17 +67,17 @@
 
 /* ===== History Card ===== */
 .history-card {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 6px 16px rgba(139, 94, 60, 0.12);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.4s ease-in-out;
 }
 
 .history-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 10px 22px rgba(139, 94, 60, 0.25);
 }
 
 /* ===== Card Header ===== */
@@ -90,15 +90,15 @@
 
 .card-header h3 {
   margin: 0;
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* brown */
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 /* ===== Date Tag ===== */
 .date-tag {
-  background: #ffe0e6;
-  color: #c62828;
+  background: #F3E6D6; /* soft beige */
+  color: #8B5E3C;      /* warm brown */
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -106,34 +106,34 @@
 }
 
 .dark .date-tag {
-  background: #3a1f26;
-  color: #ffb6c1;
+  background: #4A3A32;
+  color: #D9B895;  /* dark caramel */
 }
 
 /* ===== Notes ===== */
 .notes {
-  color: var(--text-color, #2b1b1d);
+  color: var(--text-color);
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* ===== Dark Mode Variables ===== */
+/* ===== Dark Mode Adjustments ===== */
 .dark .history-card {
-  background: #2b1b22;
-  box-shadow: 0 8px 18px rgba(255, 182, 193, 0.15);
-  color: #fce4ec;
+  background: #3B2C22;
+  box-shadow: 0 8px 18px rgba(197, 143, 99, 0.15);
+  color: var(--text-color);
 }
 
 .dark .history-title {
-  color: #ffb6c1;
+  color: var(--secondary-color); /* soft caramel */
 }
 
 .dark .history-subtitle {
-  color: #d8b8bd;
+  color: var(--muted-text);
 }
 
 .dark .notes {
-  color: #fcdde1;
+  color: #F0E2D3;
 }
 
 /* ===== Animation ===== */

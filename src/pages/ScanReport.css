@@ -1,7 +1,6 @@
 /* ===============================
-   ❤️ Scan Report Page (MedCare Theme)
-   Red × Pastel Pink
-   Drag & Drop + Camera Upload — Light + Dark Mode
+   🤎 Scan Report Page (MedCare Theme)
+   Brown × Beige — Light + Dark Mode
    =============================== */
 
 .scan-report-page {
@@ -16,14 +15,14 @@
 
 /* ===== Light Mode Background ===== */
 .light.scan-report-page {
-  background: linear-gradient(180deg, #fff5f7 0%, #ffe9ef 100%);
-  color: #2b1b1d;
+  background: linear-gradient(180deg, #FFF7ED 0%, #F5E9D6 100%);
+  color: #3B2C22;
 }
 
 /* ===== Dark Mode Background ===== */
 .dark.scan-report-page {
-  background: linear-gradient(180deg, #1b0f13 0%, #2b1b22 100%);
-  color: #fce4ec;
+  background: linear-gradient(180deg, #231A15 0%, #3B2C22 100%);
+  color: #F0E2D3;
 }
 
 /* ===== Main Container ===== */
@@ -41,12 +40,12 @@
 .scan-report-container h1 {
   font-size: 2rem;
   margin-bottom: 0.8rem;
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* BROWN */
   font-weight: 700;
 }
 
 .scan-report-container p {
-  color: var(--text-muted, #6b4f52);
+  color: var(--text-muted);
   font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -65,9 +64,9 @@
 }
 
 .drop-zone.dragging {
-  border-color: var(--accent-color, #ff6b6b);
+  border-color: var(--accent-color);
   background: var(--drop-hover);
-  box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 0 12px rgba(139, 94, 60, 0.4); /* Brown Glow */
 }
 
 .drop-zone input {
@@ -95,13 +94,13 @@
   border-radius: 14px;
   width: 140px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.08);
+  box-shadow: 0 4px 12px rgba(139, 94, 60, 0.08);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .file-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 8px 18px rgba(139, 94, 60, 0.25);
 }
 
 .preview-img {
@@ -115,13 +114,13 @@
 .pdf-icon {
   font-size: 2.6rem;
   margin-bottom: 0.5rem;
-  color: var(--accent-color, #ff6b6b);
+  color: var(--accent-color); /* Brown */
 }
 
 .file-name {
   font-size: 0.9rem;
   word-break: break-word;
-  color: var(--text-muted, #6b4f52);
+  color: var(--text-muted);
 }
 
 /* ===== Camera Section ===== */
@@ -131,35 +130,35 @@
 }
 
 .camera-text {
-  color: var(--text-muted, #6b4f52);
+  color: var(--text-muted);
   font-size: 1rem;
   margin-bottom: 0.6rem;
 }
 
 .camera-btn {
   display: inline-block;
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  background: linear-gradient(135deg, #8B5E3C, #C58F63); /* Brown → Caramel */
   color: white;
   padding: 12px 18px;
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 4px 12px rgba(139, 94, 60, 0.25);
 }
 
 .camera-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.35);
+  box-shadow: 0 6px 16px rgba(139, 94, 60, 0.35);
 }
 
 .camera-btn input {
   display: none;
 }
 
-/* ===== Buttons ===== */
+/* ===== Upload Button ===== */
 .upload-btn {
-  background: linear-gradient(135deg, #ff6b6b, #ffb6c1);
+  background: linear-gradient(135deg, #8B5E3C, #C58F63);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -171,7 +170,7 @@
 
 .upload-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 6px 16px rgba(139, 94, 60, 0.4);
 }
 
 .upload-btn:disabled {
@@ -179,6 +178,7 @@
   cursor: not-allowed;
 }
 
+/* ===== Mode Toggle Button ===== */
 .toggle-mode-btn {
   margin-top: 1.5rem;
   background: transparent;
@@ -199,23 +199,23 @@
 /* ===== Light Mode Variables ===== */
 .light {
   --card-bg: #ffffff;
-  --card-shadow: 0 8px 20px rgba(255, 107, 107, 0.08);
-  --text-muted: #6b4f52;
-  --border-color: #ffd9e2;
-  --drop-bg: #fff5f7;
-  --drop-hover: #ffe9ef;
-  --file-bg: #fff0f5;
+  --card-shadow: 0 8px 20px rgba(139, 94, 60, 0.08);
+  --text-muted: #8F7A6C;
+  --border-color: #E8D7C3;
+  --drop-bg: #FFF7ED;
+  --drop-hover: #F5E9D6;
+  --file-bg: #F3E6D6;
 }
 
 /* ===== Dark Mode Variables ===== */
 .dark {
-  --card-bg: #2b1b22;
-  --card-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
-  --text-muted: #d8b8bd;
-  --border-color: #3a1f26;
-  --drop-bg: #1b0f13;
-  --drop-hover: #2b1b22;
-  --file-bg: #3a222b;
+  --card-bg: #3B2C22;
+  --card-shadow: 0 8px 20px rgba(197, 143, 99, 0.15);
+  --text-muted: #CBB8A7;
+  --border-color: #4A3A32;
+  --drop-bg: #231A15;
+  --drop-hover: #3B2C22;
+  --file-bg: #2A211C;
 }
 
 /* ===== Responsive ===== */
@@ -232,13 +232,8 @@
     width: 120px;
   }
 
-  .upload-btn {
-    width: 100%;
-  }
-
+  .upload-btn,
   .camera-btn {
     width: 100%;
-    padding: 10px;
   }
 }
-

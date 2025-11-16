@@ -1,0 +1,190 @@
+/* === PROFILE PAGE THEME === */
+.profile-container {
+  padding: 40px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card {
+  width: 420px;
+  background: #fff7ec;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  border: 2px solid #f0e0c8;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  color: #7a4a23;
+}
+
+/* === PHOTO === */
+.profile-photo-section {
+  position: relative;
+  margin: 15px 0;
+}
+
+.photo-wrapper {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #c8925c;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(200,146,92,0.75);
+  color: white;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.file-input {
+  display: none;
+}
+
+/* === FORM === */
+.profile-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.profile-info label {
+  display: block;
+  color: #704522;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.profile-info input,
+.profile-info select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #e2c7a4;
+  background: #fffdfa;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.profile-info input:focus,
+.profile-info select:focus {
+  border-color: #c8925c;
+  box-shadow: 0 0 6px rgba(200,146,92,0.6);
+}
+
+/* Editing state */
+.profile-info.editing input,
+.profile-info.editing select {
+  background: #fff2d8;
+}
+
+/* password icon */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 32%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7a4a23;
+}
+
+/* === BUTTONS === */
+.profile-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.edit-btn,
+.logout-btn,
+.save-btn,
+.cancel-btn {
+  width: 48%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background: #c8925c;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #ae7442;
+}
+
+.logout-btn {
+  background: #f4e1d0;
+  color: #8b3f2a;
+  border: 2px solid #e3c0a5;
+}
+
+.logout-btn:hover {
+  background: #eacdb8;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #3e8e41;
+}
+
+.cancel-btn {
+  background: #d9534f;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #b94643;
+}
+
+/* === BACK BUTTON === */
+.back-btn {
+  margin-top: 25px;
+  padding: 10px 16px;
+  background: #c8925c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.back-btn:hover {
+  background: #ae7442;
+}
+

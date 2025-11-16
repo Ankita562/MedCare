@@ -1,184 +1,291 @@
-/* src/pages/Auth.css
-   MedCare Auth Page — cleaned + consistent with "dark-mode" on <body>
-*/
+/* ==========================================================
+   THEME VARIABLES — MATCH EXACT COLORS FROM YOUR DASHBOARD
+========================================================== */
+:root {
+  --bg: #F7EEDC;                 /* Light cream background */
+  --bg-card: #F9EED9;            /* Soft cream card */
+  --bg-left: linear-gradient(135deg, #F0DFCA, #E6D5BF);
 
+  --text: #6B4F33;               /* Warm brown heading */
+  --text-light: #7A6148;         /* Softer brown subtext */
+
+  --accent: #A0764F;             /* Brown highlight button */
+  --accent-dark: #8B623D;        /* Darker brown hover */
+
+  --input-bg: #FFFFFF;           /* Clean white inputs */
+  --input-border: #D6B892;       /* Soft brown border */
+
+  --error-bg: #F9E1D5;           /* Soft peach error */
+  --error-text: #A33D2E;         /* Warm red-brown */
+}
+
+/* ==========================================================
+   DARK MODE — MATCHES YOUR DARK SIDEBAR STYLE
+========================================================== */
+[data-theme="dark"] {
+  --bg: #1C1C1C;
+  --bg-card: #252525;
+  --bg-left: linear-gradient(135deg, #2D2A26, #1D1A17);
+
+  --text: #EFEFEF;
+  --text-light: #C7C7C7;
+
+  --accent: #A0764F;
+  --accent-dark: #8B623D;
+
+  --input-bg: #333;
+  --input-border: #555;
+
+  --error-bg: #3A1F1F;
+  --error-text: #FFABAB;
+}
+
+/* ==========================================================
+   PAGE LAYOUT
+========================================================== */
 .auth-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-  transition: background 0.35s ease, color 0.35s ease;
-  margin: 0;
-  padding: 0;
-}
-
-/* Light by default */
-.auth-page {
-  background: linear-gradient(120deg, #fff5f7 0%, #ffe9ef 100%);
-  color: #2b1b1d;
-}
-
-/* Card wrapper */
-.auth-container {
+  height: 100vh;
   width: 100%;
-  max-width: 420px;
-  padding: 20px;
-  box-sizing: border-box;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
-.auth-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.15);
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* DARK MODE TOGGLE BUTTON */
+.theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--accent);
+  transition: 0.3s;
+  z-index: 1000;
 }
 
-.auth-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(255, 107, 107, 0.22);
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
 }
 
-/* Branding */
-.brand-title {
-  font-size: 1.8rem;
-  color: #ff6b6b;
-  margin-bottom: 1rem;
-}
-.brand-title span {
-  color: #ffb6c1;
-}
-
-/* headings & text */
-.auth-card h2 {
-  font-size: 1.4rem;
-  margin: 0 0 8px 0;
-}
-.subtitle {
-  font-size: 0.95rem;
-  color: #6b4f52;
-  margin-bottom: 1.25rem;
-}
-
-/* Form layout */
-form {
+/* ==========================================================
+   LEFT BRAND PANEL
+========================================================== */
+.auth-left {
+  flex: 1;
+  background: var(--bg-left);
+  color: white;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  margin-top: 6px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-label {
-  text-align: left;
-  font-weight: 500;
-  font-size: 0.9rem;
+.auth-illustration {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
 }
 
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ffd9e2;
+.brand-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.auth-tagline {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ==========================================================
+   RIGHT FORM PANEL
+========================================================== */
+.auth-right {
+  flex: 1;
+  background: var(--bg-card);
+  padding: 4rem 3rem;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.05);
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ==========================================================
+   FORM FIELDS
+========================================================== */
+.auth-form label {
+  font-weight: 600;
+  color: var(--text-light);
+  margin-top: 1rem;
+  display: block;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
   font-size: 1rem;
-  background: #fff;
-  color: inherit;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
-}
-
-input:focus {
-  border-color: #ff6b6b;
-  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.12);
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  color: var(--text);
   outline: none;
+  transition: 0.25s;
 }
 
-/* main button */
-.main-btn {
-  margin-top: 10px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffb6c1 100%);
-  color: #fff;
+.auth-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0px 0px 8px rgba(160, 118, 79, 0.3);
+}
+
+/* 2 columns for signup */
+.two-input {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ==========================================================
+   PASSWORD INPUT WITH EYE ICON
+========================================================== */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 45px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--accent-dark);
+  transition: 0.2s;
+}
+
+.toggle-eye:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================
+   ERROR BOX
+========================================================== */
+.error-box {
+  background: var(--error-bg);
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--error-text);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================
+   SUBMIT BUTTON
+========================================================== */
+.auth-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background: var(--accent);
+  color: white;
   border: none;
-  border-radius: 10px;
-  padding: 12px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: 0.3s ease;
+  box-shadow: 0px 6px 15px rgba(160, 118, 79, 0.25);
 }
 
-.main-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.22);
+.auth-btn:hover {
+  background: var(--accent-dark);
+  box-shadow: 0px 6px 18px rgba(139, 98, 61, 0.35);
 }
 
-/* error text */
-.error-text {
-  color: #ff3d3d;
+/* ==========================================================
+   TOGGLE LOGIN/SIGNUP
+========================================================== */
+.toggle-auth {
+  margin-top: 1.2rem;
+  text-align: center;
   font-size: 0.9rem;
-  margin: 6px 0 0 0;
-  text-align: left;
+  color: var(--text-light);
 }
 
-/* footer text */
-.form-footer {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #6b4f52;
-}
-.form-footer span {
-  color: #ff6b6b;
+.toggle-auth span {
+  color: var(--accent);
+  cursor: pointer;
+  margin-left: 5px;
   font-weight: 600;
-  cursor: pointer;
-}
-.form-footer span:hover { text-decoration: underline; }
-
-/* mode toggle */
-.mode-toggle {
-  margin-top: 1rem;
-  background: transparent;
-  border: 1px solid #ffd9e2;
-  border-radius: 20px;
-  padding: 8px 14px;
-  color: inherit;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.mode-toggle:hover {
-  background: #ff6b6b;
-  color: #fff;
 }
 
-/* ---------------- Dark mode (when body has .dark-mode) ---------------- */
-body.dark-mode .auth-page {
-  background: linear-gradient(120deg, #1b0f13 0%, #2b1b22 100%);
-  color: #fce4ec;
-}
-
-body.dark-mode .auth-card {
-  background: #2b1b22;
-  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.12);
-  color: #fce4ec;
-}
-
-body.dark-mode input {
-  background: #3a2229;
-  color: #fce4ec;
-  border-color: #3a1f26;
-}
-
-body.dark-mode .subtitle,
-body.dark-mode .form-footer {
-  color: #d8b8bd;
-}
-
-body.dark-mode .mode-toggle {
-  border-color: #3a1f26;
-}
-
-/* Responsive small screens */
-@media (max-width: 480px) {
-  .auth-card {
-    padding: 1.6rem;
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+@media (max-width: 992px) {
+  .auth-page {
+    flex-direction: column;
   }
-  .brand-title { font-size: 1.5rem; }
+
+  .auth-left {
+    height: 40vh;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .auth-right {
+    height: 60vh;
+    border-radius: 0;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-left {
+    padding: 2rem 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.8rem;
+  }
+
+  .auth-illustration {
+    width: 140px;
+    height: 140px;
+  }
+
+  .auth-right {
+    padding: 2rem 1.5rem;
+  }
+
+  .two-input {
+    flex-direction: column;
+  }
 }
