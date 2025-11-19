@@ -1,43 +1,23 @@
-# MedTrack
+# MedCare💊
 
-A full-stack MERN website to help users manage medications, set reminders, and track health records.
+![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue)
+"A simple, secure website to help you remember your meds and keep your health info organized."
 
----
+🤔 The Problem
+Let's be real: it’s hard to remember to take medication on time. Doctors say "simple forgetfulness" is the #1 reason treatment fails. Plus, we often lose physical prescriptions or forget the verbal advice doctors give us about diet and exercise.
 
-## 🚀 Getting Started with Create React App
+💡 Our Solution
+MedCare is your **Digital Pillbox**. It reminds you when to take your pills (e.g., "After Breakfast") and gives you a safe place to store your medical history and reports.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+✨ Key Features
+🔐 Secure Login:Your account is protected, and passwords are securely hashed.
+💊 Digital Pillbox: Add your medicines, set reminders, and track your inventory.
+📝 Health Dashboard: See everything you need to take today in one view.
+📂 Medical History: Log allergies, conditions, and upload photos of your lab reports.
+📞 Emergency Contacts: Keep important numbers just a click away.
 
-### Available Scripts
-
-In the project directory, you can run:
-
-#### `npm start`
-Runs the app in the development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.  
-The page will reload when you make changes, and you may see lint errors in the console.
-
-#### `npm test`
-Launches the test runner in the interactive watch mode.  
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
-
-#### `npm run build`
-Builds the app for production to the `build` folder.  
-It bundles React in production mode and optimizes the build for the best performance.
-
-#### `npm run eject`
-**Note:** this is a one-way operation. Once you `eject`, you can’t go back!  
-It copies all configuration files and dependencies so you can have full control.
-
----
-
-## 📚 Learn More
-
-- [React documentation](https://reactjs.org/)  
-- [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started)
-- [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-- [Analyzing the Bundle Size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-- [Making a Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-- [Advanced Configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-- [Deployment](https://facebook.github.io/create-react-app/docs/deployment)
-- [Troubleshooting `npm run build` issues](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🛠️ Tech Stack
+We built this using the "MERN Stack":
+Frontend: React.js
+Backend: Node.js & Express
+Database: MongoDB (Atlas)
