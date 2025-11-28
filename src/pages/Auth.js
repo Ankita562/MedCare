@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Eye, EyeOff } from "lucide-react";
 import "./Auth.css";
 import logo from '../assets/images/logo.png';
+import { useNavigate } from "react-router-dom";
 
 const Auth = ({ onLogin }) => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -47,6 +49,7 @@ const Auth = ({ onLogin }) => {
     localStorage.setItem("isLoggedIn", true);
 
     if (onLogin) onLogin();
+    navigate("/dashboard");
   };
 
   return (

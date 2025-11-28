@@ -102,8 +102,28 @@ function App() {
           />
 
           {/* Auth pages */}
-          <Route path="/login" element={<Auth onLogin={() => setIsLoggedIn(true)} />} />
-          <Route path="/register" element={<Auth onLogin={() => setIsLoggedIn(true)} />} />
+          {/* PREVENT LOGGED-IN USERS FROM SEEING LOGIN PAGE */}
+        <Route
+          path="/login"
+          element={
+            !isLoggedIn ? (
+              <Auth onLogin={() => setIsLoggedIn(true)} />
+            ) : (
+              <Navigate to="/dashboard" />
+            )
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            !isLoggedIn ? (
+              <Auth onLogin={() => setIsLoggedIn(true)} />
+            ) : (
+              <Navigate to="/dashboard" />
+            )
+          }
+        />
 
           {/* Patient Details */}
           <Route
