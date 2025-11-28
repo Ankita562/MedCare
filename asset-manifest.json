@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MedCare/static/css/main.349f0142.css",
-    "main.js": "/MedCare/static/js/main.e31f5b67.js",
+    "main.js": "/MedCare/static/js/main.79192b07.js",
     "static/media/logo.png": "/MedCare/static/media/logo.f705d321e2a6ce48ec81.png",
     "index.html": "/MedCare/index.html",
     "main.349f0142.css.map": "/MedCare/static/css/main.349f0142.css.map",
-    "main.e31f5b67.js.map": "/MedCare/static/js/main.e31f5b67.js.map"
+    "main.79192b07.js.map": "/MedCare/static/js/main.79192b07.js.map"
   },
   "entrypoints": [
     "static/css/main.349f0142.css",
-    "static/js/main.e31f5b67.js"
+    "static/js/main.79192b07.js"
   ]
 }
